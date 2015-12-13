@@ -101,4 +101,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-from .rheia_settings import *
+from rheia_proj.rheia_settings import *
