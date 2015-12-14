@@ -26,7 +26,17 @@ class UserViewsTests(AuthenticatedTestsMixin, TestCase):
         response = self.client.get(self.my_home_url)
         self.assertEqual(response.status_code, 200)
 
+    def test_user_can_see_name_is_own_page(self):
+        self.login()
+        response = self.client.get(self.my_home_url)
+        self.assertContains(response, self.user.username)
+
     def test_i_cannot_access_somebody_elses_page(self):
         self.login()
         response = self.client.get(reverse("user", args=(self.user.id + 1, )))
         self.assertEqual(response.status_code, 403)
+
+    def test_can_access_own_time_page(self):
+        self.login()
+        response = self.client.get(reverse("user_time", args=(self.user.id, )))
+        self.assertEqual(response.status_code, 200)
