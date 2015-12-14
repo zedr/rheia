@@ -24,5 +24,8 @@ serve: env
 test: env
 	$(virtualenv) $(manage) test rheia
 
+superuser: env
+	$(virtualenv) $(manage) createsuperuser
+
 clean:
 	@rm -rf env

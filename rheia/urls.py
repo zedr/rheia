@@ -1,4 +1,4 @@
-"""rheia URL Configuration
+"""Rheia URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.8/topics/http/urls/
@@ -14,7 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
 from django.conf.urls import include, url
-from django.contrib import admin
+from django.shortcuts import redirect
+
+from rheia.views.auth import login, whoami, user
 
 urlpatterns = [
+    url("^login/", login, name="login"),
+    url("^whoami/", whoami, name="whoami"),
+    url("^users/(?P<uid>\d+)/$", user, name="user"),
+    url("^$", lambda request: redirect("login"))
 ]
