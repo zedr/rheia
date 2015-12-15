@@ -2,6 +2,8 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth import models as auth_models
 
+def today():
+    return timezone.datetime.today().date()
 
 class LoggedTime(models.Model):
     """The basic unit of time that is aggregated to form the TimeSheet.
@@ -14,13 +16,49 @@ class LoggedTime(models.Model):
     last_modified = models.DateTimeField(auto_now=True)
 
     # The day on which the time was logged.
-    start_date = models.DateField(default=timezone.now, null=False)
+    start_date = models.DateField(default=today, null=False)
 
     # The time at which the time was logged (optional)
     start_time = models.TimeField(default=None, null=True)
 
     # The quantity of time, in seconds, that was logged.
     seconds = models.IntegerField(null=True, default=None)
+
+    @property
+    def minutes(self):
+        if self.seconds:
+            return self.seconds / 60.0
+
+    @property
+    def hours(self):
+        if self.minutes:
+            return self.minutes
+
+    @property
+    def start_datetime(self):
+        return timezone.datetime.combine(self.start_date, self.start_time)
+
+    @property
+    def timedelta(self):
+        if self.seconds:
+            return timezone.timedelta(0, self.seconds)
+
+    @property
+    def end_datetime(self):
+        if self.seconds and self.start_date and self.start_time:
+            return self.start_datetime + self.timedelta
+
+    @property
+    def end_date(self):
+        end_datetime = self.end_datetime
+        if end_datetime:
+            return end_datetime.date()
+
+    @property
+    def end_time(self):
+        end_datetime = self.end_datetime
+        if end_datetime:
+            return end_datetime.time()
 
     @property
     def is_active(self):

@@ -24,25 +24,29 @@
                     <th>#</th>
                     <th>Start Date</th>
                     <th>Start Time</th>
-                    <th>Seconds</th>
-                    <th>In progress</th>
+                    <th>End Date</th>
+                    <th>End Time</th>
+                    <th>Minutes</th>
+                    <th>Active</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for item in object_list %}
                     <tr>
                         <td>{{ item.id }}</td>
-                        <td>{{ item.first_created }}</td>
-                        <td>{{ item.start_time }}</td>
-                        <td>{{ item.seconds }}</td>
-                        <td>{% if not item.seconds %}&#10004;{% endif %}</td>
+                        <td>{{ item.start_date }}</td>
+                        <td>{{ item.start_time|default_if_none:"-" }}</td>
+                        <td>{{ item.end_date|default_if_none:"-" }}</td>
+                        <td>{{ item.end_time|default_if_none:"-" }}</td>
+                        <td>{{ item.minutes|default_if_none:"-" }}</td>
+                        <td>{% if item.is_active %}&#10004;{% endif %}</td>
                     </tr>
                 {% endfor %}
                 </tbody>
                 <tfoot>
                 <tr>
                     <th colspan="5" class="timesheet-total">
-                        Total logged seconds: {{ total_seconds }}
+                        Total logged time: {{ total_seconds }}
                     </th>
                 </tr>
                 </tfoot>
