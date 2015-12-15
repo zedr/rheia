@@ -17,6 +17,14 @@
     margin-top: 32px;
 }
 
+#container {
+    min-width: auto;
+}
+
 .endlink {
     float: right;
+}
+
+.timesheets {
+    margin-top: 40px;
 }
