@@ -1,6 +1,5 @@
 from django.core.urlresolvers import reverse_lazy
-from django.shortcuts import redirect
-from django.views.generic.edit import BaseFormView, BaseCreateView
+from django.views.generic.edit import BaseCreateView
 from django.views.generic.list import ListView
 
 from rheia.form import TimeForm
@@ -27,7 +26,7 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         form.instance.owner = self.request.user
         return super(UserTime, self).form_valid(form)
 
-    def get(self, request, *args, **kwargs):
+    def get(self, *args, **kwargs):
         form = self.form_class()
         return self.render_to_response(
             {

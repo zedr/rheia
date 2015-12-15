@@ -1,27 +1,40 @@
-<h1>{{ user.username }}'s time</h1>
+{% extends "rheia/base_site.html" %}
+{% block content %}
+    <h1>{{ user.first_name }} {{ user.last_name }}'s time</h1>
 
-<h2>Log time</h2>
-<form action="" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-</form>
+    <div class="timeform">
+        <h2>Log time</h2>
 
-<table>
-    <thead>
-        <th>#</th>
-        <th>Created</th>
-        <th>Last Modified</th>
-    </thead>
-    <tbody>
-        {% for item in object_list %}
-            <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.first_created }}</td>
-                <td>{{ item.last_modified }}</td>
-                <td>{{ item.start_time }}</td>
-            </tr>
-        {% endfor %}
+        <form action=""
+              method="post">
+            {% csrf_token %} {{ form.as_p }} <input type="submit"
+                                                    value="Submit"/>
+        </form>
+    </div>
 
-    </tbody>
-</table>
+    {% if object_list.count %}
+        <div class="timesheets">
+            <h2>Time Sheets</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Logged When</th>
+                    <th>Start Time</th>
+                    <th>Logged Minutes</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for item in object_list %}
+                    <tr>
+                        <td>{{ item.id }}</td>
+                        <td>{{ item.first_created }}</td>
+                        <td>{{ item.start_time }}</td>
+                        <td>{{ item.elapsed_seconds }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{% endblock content %}

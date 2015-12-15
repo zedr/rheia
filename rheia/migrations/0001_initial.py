@@ -21,7 +21,7 @@ class Migration(migrations.Migration):
                 ('last_modified', models.DateTimeField(auto_now=True)),
                 ('start_date', models.DateField(default=django.utils.timezone.now)),
                 ('start_time', models.TimeField(default=None, null=True)),
-                ('elapsed_seconds', models.IntegerField(default=None, null=True)),
+                ('seconds', models.IntegerField(default=None, null=True)),
                 ('owner', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
         ),

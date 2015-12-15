@@ -20,7 +20,7 @@ class LoggedTime(models.Model):
     start_time = models.TimeField(default=None, null=True)
 
     # The quantity of time, in seconds, that was logged.
-    elapsed_seconds = models.IntegerField(null=True, default=None)
+    seconds = models.IntegerField(null=True, default=None)
 
     @property
     def is_closed(self):

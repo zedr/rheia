@@ -1,7 +1,5 @@
-{% extends "admin/base_site.html" %}
+{% extends "rheia/base_site.html" %}
 {% load i18n admin_static %}
-
-{% block extrastyle %}{{ block.super }}<link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />{% endblock %}
 
 {% block bodyclass %}{{ block.super }} login{% endblock %}
 
@@ -12,6 +10,14 @@
 {% block content_title %}{% endblock %}
 
 {% block breadcrumbs %}{% endblock %}
+
+{% block branding %}
+    <div class="logo">
+        <img src="{% static 'img/rheia.svg' %}"/>
+    </div>
+    <h1>Rheia</h1>
+    <h2>Your companion of time</h2>
+{% endblock branding %}
 
 {% block content %}
 {% if form.errors and not form.non_field_errors %}

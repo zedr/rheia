@@ -1,0 +1,19 @@
+#header {
+    background-color: white;
+}
+
+#branding h1, #branding h2 {
+    color: #222222;
+    text-align: center;
+}
+
+.logo img {
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+
+.login #container {
+    margin-top: 32px;
+}
+
