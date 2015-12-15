@@ -33,7 +33,7 @@
                 <tbody>
                 {% for item in object_list %}
                     <tr>
-                        <td>{{ item.id }}</td>
+                        <td>{{ forloop.counter }}</td>
                         <td>{{ item.start_date }}</td>
                         <td>{{ item.start_time|default_if_none:"-" }}</td>
                         <td>{{ item.end_date|default_if_none:"-" }}</td>
@@ -45,7 +45,7 @@
                 </tbody>
                 <tfoot>
                 <tr>
-                    <th colspan="5" class="timesheet-total">
+                    <th colspan="7" class="timesheet-total">
                         Total logged time: {{ total_hours }} hours.
                     </th>
                 </tr>
