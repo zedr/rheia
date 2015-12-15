@@ -10,9 +10,12 @@
     <div class="breadcrumbs">
         <a href="{% url 'user' user.id %}">My Home</a>
         &emsp;
-    <div class="endlink">
+    <div class="endlinks">
+        {% if user.is_superuser %}
+            <a href="{% url 'admin:index' %}">Admin</a>
+        {% endif %}
+        &emsp;
         <a href="{% url 'logout' %}">Logout</a>
     </div>
-        {% if title %} &rsaquo; {{ title }}{% endif %}
     </div>
 {% endblock breadcrumbs %}

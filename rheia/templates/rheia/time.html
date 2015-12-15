@@ -34,8 +34,8 @@
                         <td>{{ item.id }}</td>
                         <td>{{ item.first_created }}</td>
                         <td>{{ item.start_time }}</td>
-                        <td>{{ item.elapsed_seconds }}</td>
-                        <td>{% if not item.elapsed_seconds %}&#10004;{% endif %}</td>
+                        <td>{{ item.seconds }}</td>
+                        <td>{% if not item.seconds %}&#10004;{% endif %}</td>
                     </tr>
                 {% endfor %}
                 </tbody>

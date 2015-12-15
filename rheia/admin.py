@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from rheia.models import LoggedTime
+
+admin.site.register(LoggedTime)

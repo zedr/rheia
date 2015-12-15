@@ -27,3 +27,13 @@ class LoggedTime(models.Model):
         """Is this time currently being tracked?
         """
         return True if self.seconds is None else False
+
+    def __unicode__(self):
+        if self.seconds is None:
+            return u"Time unit by {0} logged on {1} (in progress)".format(
+                self.owner.username, self.start_date.isoformat()
+            )
+        else:
+            return u"Time unit ({0} seconds) by {1} logged on {2}".format(
+                self.seconds, self.owner.username, self.start_date.isoformat()
+            )
