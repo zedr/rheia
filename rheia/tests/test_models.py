@@ -33,8 +33,8 @@ class LoggedTimeTests(AuthenticatedTestsMixin, TestCase):
             owner=self.user,
         )
         logged.save()
-        self.assertFalse(logged.is_closed)
+        self.assertTrue(logged.is_active)
 
-        logged.elapsed_seconds = 60
+        logged.seconds = 60
         logged.save()
-        self.assertTrue(logged.is_closed)
+        self.assertFalse(logged.is_active)

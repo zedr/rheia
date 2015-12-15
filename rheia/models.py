@@ -23,7 +23,7 @@ class LoggedTime(models.Model):
     seconds = models.IntegerField(null=True, default=None)
 
     @property
-    def is_closed(self):
-        """Have we finished logging this time?
+    def is_active(self):
+        """Is this time currently being tracked?
         """
-        return False if self.elapsed_seconds is None else True
+        return True if self.seconds is None else False

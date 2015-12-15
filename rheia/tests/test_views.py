@@ -29,7 +29,7 @@ class UserViewsTests(AuthenticatedTestsMixin, TestCase):
     def test_user_can_see_name_is_own_page(self):
         self.login()
         response = self.client.get(self.my_home_url)
-        self.assertContains(response, self.user.username)
+        self.assertContains(response, self.user.last_name)
 
     def test_i_cannot_access_somebody_elses_page(self):
         self.login()

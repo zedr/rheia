@@ -16,11 +16,12 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.shortcuts import redirect
 
-from rheia.views.auth import login, whoami, user
+from rheia.views.auth import login, logout, whoami, user
 from rheia.views.time import UserTime
 
 urlpatterns = [
     url("^login/", login, name="login"),
+    url("^logout/", logout, name="logout"),
     url("^whoami/", whoami, name="whoami"),
     url("^users/(?P<uid>\d+)/$", user, name="user"),
     url("^users/(?P<uid>\d+)/time/$", UserTime.as_view(), name="user_time"),

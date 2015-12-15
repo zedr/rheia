@@ -7,4 +7,13 @@
     <link rel="stylesheet" type="text/css" href="{% static "css/rheia.css" %}" />
 {% endblock %}
 
-{% block nav-global %}{% endblock %}
+{% block breadcrumbs %}
+    <div class="breadcrumbs">
+        <a href="{% url 'user' user.id %}">My Home</a>
+        &emsp;
+    <div class="endlink">
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+        {% if title %} &rsaquo; {{ title }}{% endif %}
+    </div>
+{% endblock breadcrumbs %}

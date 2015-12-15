@@ -1,9 +1,11 @@
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.views import login as django_login
-from django.core.urlresolvers import reverse_lazy, reverse
+from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.views import (
+    login as django_login,
+    logout as django_logout)
 from django.http import (
     HttpResponse,
     HttpResponseForbidden,
@@ -22,6 +24,12 @@ def login(request):
             "site_header": defaults.APP_NAME + " Login"
         }
     )
+
+
+def logout(request):
+    if request.user.is_authenticated():
+        django_logout(request)
+    return redirect(reverse("login"))
 
 
 @login_required(login_url=defaults.LOGIN_URL)
