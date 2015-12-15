@@ -2,20 +2,23 @@
 
 {% block extrastyle %}
     {{ block.super }}
-    <link rel="stylesheet" type="text/css" href="{% static "admin/css/login.css" %}" />
-    <link rel="stylesheet" type="text/css" href="{% static "css/rheia.css" %}" />
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static "admin/css/login.css" %}"/>
+    <link rel="stylesheet"
+          type="text/css"
+          href="{% static "css/rheia.css" %}"/>
 {% endblock %}
 
 {% block breadcrumbs %}
     <div class="breadcrumbs">
-        <a href="{% url 'user' user.id %}">My Home</a>
-        &emsp;
-    <div class="endlinks">
-        {% if user.is_superuser %}
-            <a href="{% url 'admin:index' %}">Admin</a>
-        {% endif %}
-        &emsp;
-        <a href="{% url 'logout' %}">Logout</a>
-    </div>
+        <strong>Rheia:</strong>
+        <a href="{% url 'user' user.id %}">My Home</a> &emsp;
+        <div class="endlinks">
+            {% if user.is_superuser %}
+                <a href="{% url 'admin:index' %}">Admin</a>
+            {% endif %}
+            &emsp; <a href="{% url 'logout' %}">Logout</a>
+        </div>
     </div>
 {% endblock breadcrumbs %}

@@ -12,6 +12,12 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
     form_class = TimeForm
     template_name = "rheia/time.html"
 
+    @property
+    def total_logged_seconds(self):
+        return sum(
+            log.seconds for log in self.object_list if log.seconds is not None
+        )
+
     def get_queryset(self):
         return self.model.objects.filter(owner=self.request.user)
 
@@ -31,6 +37,7 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         return self.render_to_response(
             {
                 "form": form,
-                "object_list": self.object_list
+                "object_list": self.object_list,
+                "total_seconds": self.total_logged_seconds
             }
         )

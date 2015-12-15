@@ -22,10 +22,10 @@
                 <thead>
                 <tr>
                     <th>#</th>
-                    <th>Logged When</th>
+                    <th>Start Date</th>
                     <th>Start Time</th>
-                    <th>Logged Minutes</th>
-                    <th>Active</th>
+                    <th>Seconds</th>
+                    <th>In progress</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -39,6 +39,13 @@
                     </tr>
                 {% endfor %}
                 </tbody>
+                <tfoot>
+                <tr>
+                    <th colspan="5" class="timesheet-total">
+                        Total logged seconds: {{ total_seconds }}
+                    </th>
+                </tr>
+                </tfoot>
             </table>
         </div>
     {% endif %}

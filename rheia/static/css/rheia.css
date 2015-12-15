@@ -28,3 +28,7 @@
 .timesheets {
     margin-top: 40px;
 }
+
+.timesheet-total {
+    text-align: right
+}
