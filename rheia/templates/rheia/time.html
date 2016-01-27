@@ -1,4 +1,5 @@
 {% extends "rheia/base_site.html" %}
+{% load staticfiles %}
 
 {% block title %}My Time | Rheia{% endblock %}
 
@@ -54,3 +55,8 @@
         </div>
     {% endif %}
 {% endblock content %}
+
+{% block footer %}
+{{ block.super }}
+    <script type="text/javascript" src="{% static 'js/form/time.js' %}"></script>
+{% endblock footer %}

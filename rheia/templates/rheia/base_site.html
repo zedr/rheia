@@ -1,4 +1,5 @@
-{% extends "admin/base.html" %}{% load staticfiles %}
+{% extends "admin/base.html" %}
+{% load staticfiles %}
 
 {% block extrastyle %}
     {{ block.super }}
@@ -22,3 +23,10 @@
         </div>
     </div>
 {% endblock breadcrumbs %}
+
+{% block footer %}
+    {{ block.super }}
+<div id="scripts">
+    <script src="{% static 'js/lib/jquery-2.2.0.min.js' %}" type="text/javascript"></script>
+</div>
+{% endblock footer %}

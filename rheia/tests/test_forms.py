@@ -19,3 +19,14 @@ class FormsTests(AuthenticatedTestsMixin, TestCase):
         response = self.client.get(self.user_time_url)
         self.assertContains(response, "Log time")
         self.assertContains(response, "Submit")
+
+    def test_user_time_page_has_now_button_available(self):
+        """The form has a convenient NOW button available.
+
+        The check is limited to verifying that the related JavaScript file
+        is present in the page.
+        """
+        self.login()
+        response = self.client.get(self.user_time_url)
+        self.assertContains(response, "time.js")
+

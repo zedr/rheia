@@ -2,8 +2,10 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth import models as auth_models
 
+
 def today():
     return timezone.datetime.today().date()
+
 
 class LoggedTime(models.Model):
     """The basic unit of time that is aggregated to form the TimeSheet.
@@ -27,7 +29,7 @@ class LoggedTime(models.Model):
     @property
     def minutes(self):
         if self.seconds:
-            return self.seconds / 60.0
+            return round(self.seconds / 60.0, 1)
 
     @property
     def hours(self):
