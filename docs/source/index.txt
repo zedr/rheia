@@ -11,7 +11,10 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   installation-linux.txt
+   installation-windows.txt
 
+   rheia/modules.txt
 
 Indices and tables
 ==================

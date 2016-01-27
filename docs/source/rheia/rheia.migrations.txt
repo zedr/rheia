@@ -1,0 +1,22 @@
+rheia.migrations package
+========================
+
+Submodules
+----------
+
+rheia.migrations.0001_initial module
+------------------------------------
+
+.. automodule:: rheia.migrations.0001_initial
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: rheia.migrations
+    :members:
+    :undoc-members:
+    :show-inheritance:

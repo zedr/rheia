@@ -1,0 +1,63 @@
+rheia package
+=============
+
+Subpackages
+-----------
+
+.. toctree::
+
+    rheia.migrations
+    rheia.tests
+    rheia.views
+
+Submodules
+----------
+
+rheia.admin module
+------------------
+
+.. automodule:: rheia.admin
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.defaults module
+---------------------
+
+.. automodule:: rheia.defaults
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.form module
+-----------------
+
+.. automodule:: rheia.form
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.models module
+-------------------
+
+.. automodule:: rheia.models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.urls module
+-----------------
+
+.. automodule:: rheia.urls
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: rheia
+    :members:
+    :undoc-members:
+    :show-inheritance:

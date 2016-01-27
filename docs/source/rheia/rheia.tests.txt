@@ -1,0 +1,46 @@
+rheia.tests package
+===================
+
+Submodules
+----------
+
+rheia.tests.mixins module
+-------------------------
+
+.. automodule:: rheia.tests.mixins
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.tests.test_forms module
+-----------------------------
+
+.. automodule:: rheia.tests.test_forms
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.tests.test_models module
+------------------------------
+
+.. automodule:: rheia.tests.test_models
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.tests.test_views module
+-----------------------------
+
+.. automodule:: rheia.tests.test_views
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: rheia.tests
+    :members:
+    :undoc-members:
+    :show-inheritance:

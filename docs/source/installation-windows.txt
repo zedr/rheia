@@ -1,0 +1,33 @@
+.. _install_windows:
+
+========================
+Installation for Windows
+========================
+
+ - Install Python 2.7
+
+ - Install Git
+
+ - Checkout the code::
+
+       $ git clone git@bitbucket.org:tcdgroupb/rheia.git rheia
+
+ - Open a command-line prompt, and build the project::
+
+       $ cd rheia
+       $ make
+
+ - Initialise and sync the database::
+
+       $ make db
+       $ make sync
+
+ - Run the tests::
+
+       $ make tests
+
+ - Start the server::
+
+       $ make serve
+
+ - Open a browser and visit http://localhost:8000

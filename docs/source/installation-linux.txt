@@ -1,0 +1,40 @@
+.. _install_linux:
+
+======================
+Installation for Linux
+======================
+
+Ubuntu based systems
+====================
+
+ - Install Python 2.7 and Setuptools::
+
+       $ sudo apt install python python-pip python-virtualenv
+
+ - Install Git::
+
+       $ sudo apt install git
+
+ - Checkout the code::
+
+       $ git clone git@bitbucket.org:tcdgroupb/rheia.git rheia
+
+ - Build the project::
+
+       $ cd rheia
+       $ make
+
+ - Initialise and sync the database::
+
+       $ make db
+       $ make sync
+
+ - Run the tests::
+
+       $ make tests
+
+ - Start the server::
+
+       $ make serve
+
+ - Open a browser and visit http://localhost:8000

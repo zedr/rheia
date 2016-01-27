@@ -1,0 +1,38 @@
+rheia.views package
+===================
+
+Submodules
+----------
+
+rheia.views.auth module
+-----------------------
+
+.. automodule:: rheia.views.auth
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.views.mixins module
+-------------------------
+
+.. automodule:: rheia.views.mixins
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.views.time module
+-----------------------
+
+.. automodule:: rheia.views.time
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: rheia.views
+    :members:
+    :undoc-members:
+    :show-inheritance:
