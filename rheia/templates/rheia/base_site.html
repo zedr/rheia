@@ -1,5 +1,7 @@
 {% extends "admin/base.html" %}
 {% load staticfiles %}
+{% load bootstrap3 %}
+
 
 {% block extrastyle %}
     {{ block.super }}
@@ -28,5 +30,8 @@
     {{ block.super }}
 <div id="scripts">
     <script src="{% static 'js/lib/jquery-2.2.0.min.js' %}" type="text/javascript"></script>
+    {# Load CSS and JavaScript #}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
 </div>
 {% endblock footer %}

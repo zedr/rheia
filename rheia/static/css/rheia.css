@@ -2,9 +2,19 @@
     background-color: white;
 }
 
+#branding {
+    float: none;
+}
+
 #branding h1, #branding h2 {
     color: #222222;
     text-align: center;
+}
+#branding h1 {
+    font-size: xx-large;
+}
+#branding h2 {
+    font-size: x-large;
 }
 
 .logo img {
@@ -23,6 +33,10 @@
 
 .endlinks {
     float: right;
+}
+
+.timeform {
+    max-width: 16em;
 }
 
 .timesheets {

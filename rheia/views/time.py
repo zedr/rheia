@@ -34,11 +34,13 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
 
     def get(self, *args, **kwargs):
         form = self.form_class()
-        hours_total = self.total_logged_seconds / 360
+        seconds = self.total_logged_seconds
+        hours_total = (seconds / 60.0) / 60
+
         return self.render_to_response(
             {
                 "form": form,
                 "object_list": self.object_list,
-                "total_hours": "{0:.1f}".format(hours_total)
+                "total_hours": "{0:.1f}".format(hours_total),
             }
         )

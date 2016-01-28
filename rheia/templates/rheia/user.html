@@ -2,7 +2,7 @@
 {% block title %}Myself | Rheia{% endblock %}
 {% block content %}
 <h1>Welcome, {{ user.first_name }} {{ user.last_name }}!</h1>
-<ul>
+<ul class="bg-info">
     <li>Have you <a href="{% url 'user_time' user.id %}">logged some time</a> today?</li>
 </ul>
 {% endblock content %}

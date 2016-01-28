@@ -30,11 +30,15 @@ class LoggedTime(models.Model):
     def minutes(self):
         if self.seconds:
             return round(self.seconds / 60.0, 1)
+        else:
+            return 0
 
     @property
     def hours(self):
         if self.minutes:
-            return self.minutes
+            return round(self.minutes / 60.0, 1)
+        else:
+            return 0
 
     @property
     def start_datetime(self):
