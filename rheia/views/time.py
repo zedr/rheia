@@ -1,10 +1,12 @@
 from django.core.urlresolvers import reverse_lazy
+from django.utils.decorators import method_decorator
 from django.views.generic.edit import BaseCreateView
 from django.views.generic.list import ListView
 
 from rheia.form import TimeForm
 from rheia.models import LoggedTime
 from rheia.views.mixins import LoginRequiredMixin
+from rheia.security.decorators import private_resource
 
 
 class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
@@ -32,6 +34,7 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         form.instance.owner = self.request.user
         return super(UserTime, self).form_valid(form)
 
+    @method_decorator(private_resource("name"))
     def get(self, *args, **kwargs):
         form = self.form_class()
         seconds = self.total_logged_seconds

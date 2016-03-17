@@ -23,7 +23,7 @@ urlpatterns = [
     url("^login/", login, name="login"),
     url("^logout/", logout, name="logout"),
     url("^whoami/", whoami, name="whoami"),
-    url("^users/(?P<uid>\d+)/$", user, name="user"),
-    url("^users/(?P<uid>\d+)/time/$", UserTime.as_view(), name="user_time"),
+    url("^users/(?P<name>\w+)/$", user, name="user"),
+    url("^users/(?P<name>\w+)/time/$", UserTime.as_view(), name="user_time"),
     url("^$", lambda request: redirect("login"))
 ]

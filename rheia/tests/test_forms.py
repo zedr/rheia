@@ -10,7 +10,7 @@ class FormsTests(AuthenticatedTestsMixin, TestCase):
 
     @property
     def user_time_url(self):
-        return reverse("user_time", args=(self.user.id,))
+        return reverse("user_time", args=(self.user.username,))
 
     def test_user_time_page_has_form(self):
         """The page the user can log time has a form.
@@ -29,4 +29,3 @@ class FormsTests(AuthenticatedTestsMixin, TestCase):
         self.login()
         response = self.client.get(self.user_time_url)
         self.assertContains(response, "time.js")
-

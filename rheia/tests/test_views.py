@@ -33,10 +33,31 @@ class UserViewsTests(AuthenticatedTestsMixin, TestCase):
 
     def test_i_cannot_access_somebody_elses_page(self):
         self.login()
-        response = self.client.get(reverse("user", args=(self.user.id + 1, )))
+        response = self.client.get(
+            reverse(
+                "user",
+                args=(self.some_other_user.username, )
+            )
+        )
         self.assertEqual(response.status_code, 403)
 
     def test_can_access_own_time_page(self):
         self.login()
-        response = self.client.get(reverse("user_time", args=(self.user.id, )))
+        response = self.client.get(
+            reverse(
+                "user_time",
+                args=(self.user.username, )
+            )
+        )
         self.assertEqual(response.status_code, 200)
+
+    def test_i_cannot_access_somebody_s_time_page(self):
+        self.login()
+        response = self.client.get(
+            reverse(
+                "user_time",
+                args=(self.some_other_user.username, )
+            )
+        )
+        self.assertEqual(response.status_code, 403)
+

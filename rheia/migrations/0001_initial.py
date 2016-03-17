@@ -19,7 +19,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('first_created', models.DateTimeField(auto_now_add=True)),
                 ('last_modified', models.DateTimeField(auto_now=True)),
-                ('start_date', models.DateField(default=rheia.models.today)),
+                ('start_date', models.DateField(default=rheia.utils.time.today)),
                 ('start_time', models.TimeField(default=None, null=True)),
                 ('seconds', models.IntegerField(default=None, null=True)),
                 ('owner', models.ForeignKey(to=settings.AUTH_USER_MODEL)),

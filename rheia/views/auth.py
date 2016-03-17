@@ -2,16 +2,15 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
+from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseForbidden
 from django.contrib.auth.views import (
     login as django_login,
     logout as django_logout)
-from django.http import (
-    HttpResponse,
-    HttpResponseForbidden,
-    HttpResponseNotFound)
 
 from rheia import defaults
+from rheia.security.decorators import private_resource
 
 
 @csrf_exempt
@@ -34,20 +33,11 @@ def logout(request):
 
 @login_required(login_url=defaults.LOGIN_URL)
 def whoami(request):
-    return redirect(reverse("user", args=(request.user.id,)))
+    return redirect(reverse("user", args=(request.user.username,)))
 
 
+@private_resource("name")
 @login_required(login_url=defaults.LOGIN_URL)
-def user(request, uid):
-    try:
-        uid = int(uid)
-    except TypeError:
-        return HttpResponseNotFound("Unknown id")
-    else:
-        if request.user.id == uid:
-            context = RequestContext(request, {"user": request.user})
-            return render(request, "rheia/user.html", context)
-        else:
-            return HttpResponseForbidden(
-                "You are not allowed to access this resource."
-            )
+def user(request, name):
+    context = RequestContext(request, {"user": request.user})
+    return render(request, "rheia/user.html", context)

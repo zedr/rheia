@@ -14,6 +14,11 @@ class AuthenticatedTestsMixin(object):
             email='my_user@example.com',
             password=self.user_pass
         )
+        self.some_other_user = User.objects.create_user(
+            username="somebody_else",
+            email="someone@example.com",
+            password="mumbo_jumbo"
+        )
 
     def login(self):
         return self.client.login(
@@ -23,5 +28,8 @@ class AuthenticatedTestsMixin(object):
 
     @property
     def my_home_url(self):
-        return "http://testserver" + reverse("user", args=(self.user.id,))
+        return "http://testserver" + reverse(
+            "user",
+            args=(self.user.username,)
+        )
 

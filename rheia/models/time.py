@@ -2,9 +2,7 @@ from django.db import models
 from django.utils import timezone
 from django.contrib.auth import models as auth_models
 
-
-def today():
-    return timezone.datetime.today().date()
+from rheia.utils.time import today
 
 
 class LoggedTime(models.Model):
