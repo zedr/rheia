@@ -47,8 +47,12 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         hours_total = (seconds / 60.0) / 60
         return self.render_to_response(
             {
+                "csrfmiddlewaretoken": "sasa",
                 "form": form,
                 "object_list": self.object_list,
                 "total_hours": "{0:.1f}".format(hours_total),
             }
         )
+
+    def post(self, *args, **kwargs):
+        return super(UserTime, self).post(*args, **kwargs)

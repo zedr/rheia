@@ -11,8 +11,10 @@ class LoggedTime(models.Model):
     # The person who is logging the time.
     owner = models.ForeignKey(auth_models.User)
 
+    # When this entry was created.
     first_created = models.DateTimeField(auto_now_add=True)
 
+    # The last time this entry was modified.
     last_modified = models.DateTimeField(auto_now=True)
 
     # The day on which the time was logged.
@@ -23,6 +25,9 @@ class LoggedTime(models.Model):
 
     # The quantity of time, in seconds, that was logged.
     seconds = models.IntegerField(null=True, default=None)
+
+    # Notes about this entry.
+    notes = models.TextField(null=True, max_length=4096, default=None)
 
     @property
     def minutes(self):

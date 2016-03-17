@@ -6,7 +6,8 @@ from rheia.models import LoggedTime
 class TimeForm(forms.ModelForm):
     start_time = forms.CharField(required=False)
     seconds = forms.IntegerField(required=False)
+    notes = forms.Textarea()
 
     class Meta(object):
         model = LoggedTime
-        fields = ('start_date', 'start_time', 'seconds')
+        fields = ('start_date', 'start_time', 'seconds', 'notes')
