@@ -4,7 +4,7 @@ from django.views.generic.edit import BaseCreateView
 from django.views.generic.list import ListView
 from django import http
 
-from rheia.form import TimeForm
+from rheia.forms import TimeForm
 from rheia.models import LoggedTime
 from rheia.views.mixins import LoginRequiredMixin
 from rheia.security.decorators import private_resource
