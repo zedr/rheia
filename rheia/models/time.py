@@ -24,15 +24,15 @@ class LoggedTime(models.Model):
     start_time = models.TimeField(default=None, null=True)
 
     # The quantity of time, in seconds, that was logged.
-    seconds = models.IntegerField(null=True, default=None)
+    duration = models.IntegerField(null=True, default=None)
 
     # Notes about this entry.
     notes = models.TextField(null=True, max_length=4096, default=None)
 
     @property
     def minutes(self):
-        if self.seconds:
-            return round(self.seconds / 60.0, 1)
+        if self.duration:
+            return int(round(self.duration / 60.0, 0))
         else:
             return 0
 
@@ -49,12 +49,12 @@ class LoggedTime(models.Model):
 
     @property
     def timedelta(self):
-        if self.seconds:
-            return timezone.timedelta(0, self.seconds)
+        if self.duration:
+            return timezone.timedelta(0, self.duration)
 
     @property
     def end_datetime(self):
-        if self.seconds and self.start_date and self.start_time:
+        if self.duration and self.start_date and self.start_time:
             return self.start_datetime + self.timedelta
 
     @property
@@ -73,14 +73,14 @@ class LoggedTime(models.Model):
     def is_active(self):
         """Is this time currently being tracked?
         """
-        return True if self.seconds is None else False
+        return True if self.duration is None else False
 
     def __unicode__(self):
-        if self.seconds is None:
+        if self.duration is None:
             return u"Time unit by {0} logged on {1} (in progress)".format(
                 self.owner.username, self.start_date.isoformat()
             )
         else:
             return u"Time unit ({0} seconds) by {1} logged on {2}".format(
-                self.seconds, self.owner.username, self.start_date.isoformat()
+                self.duration, self.owner.username, self.start_date.isoformat()
             )

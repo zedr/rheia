@@ -25,7 +25,6 @@ class LoggedTimeTests(AuthenticatedTestsMixin, TestCase):
         LoggedTime.objects.create(owner=self.user).save()
         self.assertGreater(LoggedTime.objects.count(), 0)
 
-
     def test_can_be_closed(self):
         """If a value is set for the elapsed_seconds field, the item is closed.
         """
@@ -35,6 +34,6 @@ class LoggedTimeTests(AuthenticatedTestsMixin, TestCase):
         logged.save()
         self.assertTrue(logged.is_active)
 
-        logged.seconds = 60
+        logged.duration = 60
         logged.save()
         self.assertFalse(logged.is_active)

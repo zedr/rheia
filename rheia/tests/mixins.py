@@ -32,4 +32,3 @@ class AuthenticatedTestsMixin(object):
             "user",
             args=(self.user.username,)
         )
-

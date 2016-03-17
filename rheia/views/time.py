@@ -18,7 +18,8 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
     @property
     def total_logged_seconds(self):
         return sum(
-            log.seconds for log in self.object_list if log.seconds is not None
+            log.duration for log in self.object_list
+            if log.duration is not None
         )
 
     def get_queryset(self):
@@ -29,7 +30,7 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         return self.get_queryset()
 
     def get_success_url(self):
-        return reverse_lazy("user_time", args=(self.request.user.id,))
+        return reverse_lazy("user_time", args=(self.request.user.username,))
 
     def form_valid(self, form):
         form.instance.owner = self.request.user

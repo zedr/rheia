@@ -73,7 +73,7 @@ class UserViewsTests(AuthenticatedTestsMixin, TestCase):
             url,
             {
                 "start_time": "12:00:00",
-                "seconds": "600",
+                "duration": "10m",
                 "start_date": ["2016-03-17"],
                 "notes": u"Hello"
             }
