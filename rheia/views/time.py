@@ -2,6 +2,7 @@ from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import BaseCreateView
 from django.views.generic.list import ListView
+from django import http
 
 from rheia.form import TimeForm
 from rheia.models import LoggedTime
@@ -34,12 +35,16 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         form.instance.owner = self.request.user
         return super(UserTime, self).form_valid(form)
 
+    def form_invalid(self, form):
+        response = super(UserTime, self).form_invalid(form)
+        response.status_code = http.HttpResponseBadRequest.status_code
+        return response
+
     @method_decorator(private_resource("name"))
     def get(self, *args, **kwargs):
         form = self.form_class()
         seconds = self.total_logged_seconds
         hours_total = (seconds / 60.0) / 60
-
         return self.render_to_response(
             {
                 "form": form,

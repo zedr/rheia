@@ -61,3 +61,13 @@ class UserViewsTests(AuthenticatedTestsMixin, TestCase):
         )
         self.assertEqual(response.status_code, 403)
 
+    def test_submitting_invalid_data_returns_400(self):
+        self.login()
+        response = self.client.post(
+            reverse(
+                "user_time",
+                args=(self.some_other_user.username, )
+            ),
+            {"asasas": 1}
+        )
+        self.assertEqual(response.status_code, 400)
