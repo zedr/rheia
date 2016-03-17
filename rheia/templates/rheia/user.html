@@ -1,8 +1,14 @@
 {% extends "rheia/base_site.html" %}
 {% block title %}Myself | Rheia{% endblock %}
 {% block content %}
-<h1>Welcome, {{ user.first_name }} {{ user.last_name }}!</h1>
-<ul class="bg-info">
-    <li>Have you <a href="{% url 'user_time' user.id %}">logged some time</a> today?</li>
-</ul>
+    {% if user.first_name %}
+        <h1>Welcome, {{ user.first_name }} {{ user.last_name }}!</h1>
+    {% else %}
+        <h1>Welcome, {{ user.username }}!</h1>
+    {% endif %}
+    <ul class="bg-info">
+        <li>Have you
+            <a href="{% url 'user_time' user.username %}">logged some time</a> today?
+        </li>
+    </ul>
 {% endblock content %}

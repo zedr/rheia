@@ -5,7 +5,11 @@
 {% block title %}My Time | Rheia{% endblock %}
 
 {% block content %}
-    <h1>{{ user.first_name }} {{ user.last_name }}'s Logged Time</h1>
+    {% if user.first_name %}
+        <h1>{{ user.first_name }} {{ user.last_name }}'s Logged Time</h1>
+    {% else %}
+        <h1>{{ user.username }}'s Logged Time</h1>
+    {% endif %}
 
     <div class="timeform">
         <h2>Log time</h2>
