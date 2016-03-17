@@ -1,12 +1,18 @@
 (function (NS) {
   "use strict";
 
-  var $ = NS.jQuery;
+  var $ = NS.jQuery,
+    zF = function zeroFill(value) {
+      var value_s = value.toString();
+      return value_s.length === 1 ? "0" + value_s : value_s;
+    };
 
   function getCurrentTime() {
     var dt = new Date();
 
-    return dt.getHours() + ":" + dt.getMinutes() + ":" + dt.getSeconds();
+    return (
+      zF(dt.getHours()) + ":" + zF(dt.getMinutes()) + ":" + zF(dt.getSeconds())
+    );
   }
 
   function initialize() {

@@ -16,7 +16,7 @@
 {% block breadcrumbs %}
     <div class="breadcrumbs">
         <strong>Rheia:</strong>
-        <a href="{% url 'user' user.id %}">My Home</a> &emsp;
+        <a href="{% url 'user' user.username %}">My Home</a> &emsp;
         <div class="endlinks">
             {% if user.is_superuser %}
                 <a href="{% url 'admin:index' %}">Admin</a>
