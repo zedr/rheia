@@ -10,6 +10,12 @@ class BaseCategory(models.Model):
     class Meta(object):
         abstract = True
 
+    def __str__(self):
+        return "{0}: {1}".format(
+            self._meta.model_name.title(),
+            self.name
+        )
+
 
 class Client(BaseCategory):
     """A Client of the organisation.
@@ -24,6 +30,8 @@ class Product(BaseCategory):
 class TaskId(BaseCategory):
     """A Task or TicketId.
     """
+    client = models.ForeignKey(Client, null=True)
+    product = models.ForeignKey(Product, null=True)
 
 
 class Activity(BaseCategory):
