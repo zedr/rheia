@@ -11,22 +11,6 @@
         <h1>{{ user.username }}'s Logged Time</h1>
     {% endif %}
 
-    <div class="timeform">
-        <h2>Log time</h2>
-
-        <form class="form"
-              action=""
-              method="post">
-            {% csrf_token %}
-            {% bootstrap_form form %}
-            {% buttons %}
-            <button type="submit" class="btn btn-primary" value="Submit">
-            {% bootstrap_icon "star" %} Submit
-            </button>
-            {% endbuttons %}
-        </form>
-    </div>
-
     {% if object_list.count %}
         <div class="timesheets">
             <h2>Time Sheets</h2>
@@ -65,6 +49,22 @@
             </table>
         </div>
     {% endif %}
+
+    <div class="timeform">
+        <h2>Log time</h2>
+        <form class="form"
+              action=""
+              method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+            <button type="submit" class="btn btn-primary" value="Submit">
+            {% bootstrap_icon "star" %} Submit
+            </button>
+            {% endbuttons %}
+        </form>
+    </div>
+
 {% endblock content %}
 
 {% block footer %}

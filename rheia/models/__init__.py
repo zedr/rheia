@@ -5,11 +5,13 @@ from rheia.models.categories import (
     Product,
     TaskId
 )
+from rheia.models.teams import Team
 
 __all__ = (
     LoggedTime.__name__,
     Activity.__name__,
-    Client,
-    Product,
-    TaskId
+    Client.__name__,
+    Product.__name__,
+    TaskId.__name__,
+    Team.__name__
 )

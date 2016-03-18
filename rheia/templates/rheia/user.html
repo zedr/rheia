@@ -6,6 +6,15 @@
     {% else %}
         <h1>Welcome, {{ user.username }}!</h1>
     {% endif %}
+    <h2>Your teams</h2>
+    <ul>
+        {% for team in teams %}
+            <li><a href="{{ team.href }}">{{ team.name }}</a></li>
+        {% empty %}
+            <li>None! Ask an administrator to add you to one.</li>
+        {% endfor %}
+    </ul>
+    <h2>Things to do</h2>
     <ul class="bg-info">
         <li>Have you
             <a href="{% url 'user_time' user.username %}">logged some time</a> today?

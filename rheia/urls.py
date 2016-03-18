@@ -13,17 +13,19 @@ Including another URLconf
     1. Add an import:  from blog import urls as blog_urls
     2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
 """
-from django.conf.urls import include, url
+from django.conf.urls import url
 from django.shortcuts import redirect
 
-from rheia.views.auth import login, logout, whoami, user
+from rheia.views.auth import login, logout, whoami, user_detail_view
 from rheia.views.time import UserTime
+from rheia.views.teams import team_detail_view
 
 urlpatterns = [
     url("^login/", login, name="login"),
     url("^logout/", logout, name="logout"),
     url("^whoami/", whoami, name="whoami"),
-    url("^users/(?P<name>\w+)/$", user, name="user"),
+    url("^teams/(?P<uid>[-_\w]+)/$", team_detail_view, name="team"),
+    url("^users/(?P<name>\w+)/$", user_detail_view, name="user"),
     url("^users/(?P<name>\w+)/time/$", UserTime.as_view(), name="user_time"),
     url("^$", lambda request: redirect("login"))
 ]
