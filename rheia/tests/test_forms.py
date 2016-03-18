@@ -1,10 +1,9 @@
 from django.core.urlresolvers import reverse
-from django.test import TestCase
 
-from rheia.tests.mixins import AuthenticatedTestsMixin
+from rheia.tests.cases import RheiaTestCase
 
 
-class FormsTests(AuthenticatedTestsMixin, TestCase):
+class FormsTests(RheiaTestCase):
     """Tests for the forms
     """
 

@@ -1,6 +1,8 @@
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
+from rheia.models import categories
+
 
 class AuthenticatedTestsMixin(object):
     """A mixin for test-cases that employ authenticated users.
@@ -9,6 +11,7 @@ class AuthenticatedTestsMixin(object):
     user_pass = "top_secret"
 
     def setUp(self):
+        super(AuthenticatedTestsMixin, self).setUp()
         self.user = User.objects.create_user(
             username=self.user_name,
             email='my_user@example.com',
@@ -32,3 +35,24 @@ class AuthenticatedTestsMixin(object):
             "user",
             args=(self.user.username,)
         )
+
+
+class CategoriesMixin(object):
+    """A mixin test-cases that depend on the presence of categories.
+
+    This mixin will also associated the test client user with one Project
+    category.
+    """
+
+    def setUp(self):
+        """Create a few categories and associate them to a user.
+        """
+        super(CategoriesMixin, self).setUp()
+        category = categories.Client.objects.create(
+            name="TCD"
+        )
+        category.assigned_users.add(self.user)
+        category.save()
+        self.categories = {"clients": [category]}
+        categories.Product.objects.create(name="Rheia")
+        categories.Activity.objects.create(name="Software development")

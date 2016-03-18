@@ -1,11 +1,10 @@
-from django.test import TestCase
 from django.core.urlresolvers import reverse, NoReverseMatch
 
-from rheia.tests.mixins import AuthenticatedTestsMixin
+from rheia.tests.cases import RheiaTestCase
 from rheia.models.time import LoggedTime
 
 
-class UserViewsTests(AuthenticatedTestsMixin, TestCase):
+class UserViewsTests(RheiaTestCase):
     """Tests for the User views (login, logout, etc...).
     """
 
@@ -72,6 +71,9 @@ class UserViewsTests(AuthenticatedTestsMixin, TestCase):
         self.client.post(
             url,
             {
+                "client": 1,
+                "product": 1,
+                "activity": 1,
                 "start_time": "12:00:00",
                 "duration": "10m",
                 "start_date": ["2016-03-17"],

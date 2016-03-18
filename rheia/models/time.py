@@ -3,6 +3,7 @@ from django.utils import timezone
 from django.contrib.auth import models as auth_models
 
 from rheia.utils.time import today
+from rheia.models import categories
 
 
 class LoggedTime(models.Model):
@@ -25,6 +26,18 @@ class LoggedTime(models.Model):
 
     # The quantity of time, in seconds, that was logged.
     duration = models.IntegerField(null=True, default=None)
+
+    # The associated Client
+    client = models.ForeignKey(categories.Client, null=True)
+
+    # The associated Product
+    product = models.ForeignKey(categories.Product, null=True)
+
+    # The associated Task ID (optional)
+    task_id = models.ForeignKey(categories.TaskId, null=True)
+
+    # The associated Activity
+    activity = models.ForeignKey(categories.Activity, null=True)
 
     # Notes about this entry.
     notes = models.TextField(null=True, max_length=4096, default=None)

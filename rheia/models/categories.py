@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth import models as auth_models
 
 
 class BaseCategory(models.Model):
@@ -11,15 +12,16 @@ class BaseCategory(models.Model):
         abstract = True
 
     def __str__(self):
-        return "{0}: {1}".format(
-            self._meta.model_name.title(),
-            self.name
-        )
+        return self.name
 
 
 class Client(BaseCategory):
     """A Client of the organisation.
     """
+    assigned_users = models.ManyToManyField(
+        auth_models.User,
+        blank=True
+    )
 
 
 class Product(BaseCategory):

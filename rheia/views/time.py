@@ -1,17 +1,18 @@
 from django.core.urlresolvers import reverse_lazy
+from django.shortcuts import render
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import BaseCreateView
 from django.views.generic.list import ListView
 from django import http
 
 from rheia.forms import TimeForm
-from rheia.models import LoggedTime
+from rheia.models import time, categories
 from rheia.views.mixins import LoginRequiredMixin
 from rheia.security.decorators import private_resource
 
 
 class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
-    model = LoggedTime
+    model = time.LoggedTime
     form_class = TimeForm
     template_name = "rheia/time.html"
 
@@ -41,17 +42,63 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         response.status_code = http.HttpResponseBadRequest.status_code
         return response
 
+    def get_assigned_clients(self):
+        """Get the Clients that are assigned to this user.
+        """
+        return categories.Client.objects.filter(
+            assigned_users=self.request.user
+        )
+
+    def get_activities(self):
+        """Get all the available activities.
+        """
+        return categories.Activity.objects.all()
+
+    def get_products(self):
+        """Get all the available products
+        """
+        return categories.Product.objects.all()
+
     @method_decorator(private_resource("name"))
     def get(self, *args, **kwargs):
-        form = self.form_class()
-        seconds = self.total_logged_seconds
-        hours_total = (seconds / 60.0) / 60
-        return self.render_to_response(
-            {
-                "csrfmiddlewaretoken": "sasa",
-                "form": form,
-                "object_list": self.object_list,
-                "total_hours": "{0:.1f}".format(hours_total),
+        associated_clients = self.get_assigned_clients()
+        if self.get_activities().count() or not self.get_products().count():
+            if associated_clients.count():
+                form = self.form_class()
+                seconds = self.total_logged_seconds
+                hours_total = (seconds / 60.0) / 60
+                return self.render_to_response(
+                    {
+                        "csrfmiddlewaretoken": "sasa",
+                        "form": form,
+                        "object_list": self.object_list,
+                        "total_hours": "{0:.1f}".format(hours_total),
+                    }
+                )
+            else:
+                return render(
+                    self.request,
+                    template_name="rheia/generic.html",
+                    status=403,
+                    context={
+                        "title": "Forbidden",
+                        "message": (
+                            "You do not have any Clients "
+                            "currently associated with you. "
+                            "Please contact an administrator for assistance."
+                        )
+                    }
+                )
+        return render(
+            self.request,
+            template_name="rheia/generic.html",
+            status=501,
+            context={
+                "title": "Not supported",
+                "message": (
+                    "The administrator has not yet completed the required "
+                    "Category configuration for this instance of Rheia. "
+                )
             }
         )
 

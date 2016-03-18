@@ -1,11 +1,10 @@
 from django.core.urlresolvers import reverse
-from django.test import TestCase
 
 from rheia.models import LoggedTime
-from rheia.tests.mixins import AuthenticatedTestsMixin
+from rheia.tests.cases import RheiaTestCase
 
 
-class TimeFieldTests(AuthenticatedTestsMixin, TestCase):
+class TimeFieldTests(RheiaTestCase):
     """
     Tests for the Time field that is displayed in the forms.
     """
@@ -23,6 +22,9 @@ class TimeFieldTests(AuthenticatedTestsMixin, TestCase):
         response = self.client.post(
             self.user_time_url,
             {
+                "client": 1,
+                "product": 1,
+                "activity": 1,
                 "start_time": "12:00:00",
                 "duration": "30m",
                 "start_date": ["2016-03-17"],
