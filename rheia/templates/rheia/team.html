@@ -1,0 +1,15 @@
+{% extends "rheia/base_site.html" %}
+{% block title %}Team {{ team.name }} | Rheia{% endblock %}
+{% block content %}
+    <h1>Team: {{ team_name }}</h1>
+    {% for title, users in roster %}
+        <h2>{{ title }}</h2>
+        <ul>
+            {% for name in users %}
+                <li>{{ name }}</li>
+            {% empty %}
+                <li>None yet!</li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+{% endblock %}
