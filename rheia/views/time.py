@@ -101,6 +101,3 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
                 )
             }
         )
-
-    def post(self, *args, **kwargs):
-        return super(UserTime, self).post(*args, **kwargs)
