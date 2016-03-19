@@ -2,6 +2,9 @@
 {% block title %}Team {{ team.name }} | Rheia{% endblock %}
 {% block content %}
     <h1>Team: {{ team_name }}</h1>
+    <ul>
+        <li><a href="{{ team_time_url }}">Manage time</a></li>
+    </ul>
     {% for title, users in roster %}
         <h2>{{ title }}</h2>
         <ul>

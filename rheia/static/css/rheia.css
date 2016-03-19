@@ -49,11 +49,19 @@ div.breadcrumbs {
     max-width: 20em;
 }
 
-.timesheets {
+.user_timesheets .timesheets {
     margin-top: 40px;
     float:right;
 }
 
 .timesheet-total {
     text-align: right
+}
+
+.ok {
+    color: green;
+}
+
+.attention {
+    color: orange;
 }

@@ -1,0 +1,59 @@
+{% if time_sheets.count %}
+    <div class="timesheets">
+        <h2>Time Sheets</h2>
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>#</th>
+                {% if show_author %}
+                    <th>Author</th>
+                {% endif %}
+                <th>Start Date</th>
+                <th>Start Time</th>
+                <th>End Date</th>
+                <th>End Time</th>
+                <th>Minutes</th>
+                <th>Active</th>
+                <th>Approved</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in time_sheets %}
+                <tr>
+                    <td><a href="{{ item.url }}">{{ forloop.counter }}</a></td>
+                    {% if show_author %}
+                        <td>{{ item.owner.username }}</td>
+                    {% endif %}
+                    <td>{{ item.start_date }}</td>
+                    <td>{{ item.start_time|default_if_none:"-" }}</td>
+                    <td>{{ item.end_date|default_if_none:"-" }}</td>
+                    <td>{{ item.end_time|default_if_none:"-" }}</td>
+                    <td>{{ item.minutes|default_if_none:"-" }}</td>
+                    <td>{% if item.is_active %}&#10004;{% endif %}</td>
+                    <td>
+                        {% if is_a_leader %}
+                            <button data-url="{{ item.url }}" class="btn-group btn-group-sm btn-approval">
+                        {% endif %}
+                        {% if item.is_approved %}
+                            <span data-approved title="Approved" class="time-approved ok glyphicon glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                        {% else %}
+                            <span title="Not approved yet" class="time-pending attention glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        {% endif %}
+                        {% if is_a_leader %}
+                            </button>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <tfoot>
+            <tr>
+                <th colspan="7"
+                    class="timesheet-total">
+                    Total logged time: {{ total_hours }} hours.
+                </th>
+            </tr>
+            </tfoot>
+        </table>
+    </div>
+{% endif %}

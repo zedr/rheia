@@ -1,15 +1,86 @@
+import json
+
 from django import http
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import ObjectDoesNotExist
 from django.shortcuts import render
 from django.db.models.query_utils import Q
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.generic import DetailView
 from django.views.generic.list import ListView
 from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import BaseCreateView
+from django import forms
 
 from rheia.forms import TimeForm
-from rheia.models import time, categories
-from rheia.views.mixins import LoginRequiredMixin
+from rheia.models import time, categories, approvals
 from rheia.security.decorators import private_resource
+from rheia.security.mixins import LoginRequiredMixin
+from rheia.views.teams import TeamDetail
+from rheia.queries.time import get_time_for_team
+
+
+class TimeDetail(DetailView):
+    """
+    The resource for a particular unit of time.
+    """
+    slug_url_kwarg = "uid"
+    slug_field = "id"
+    model = time.LoggedTime
+    template_name = "rheia/time_detail.html"
+
+    @method_decorator(login_required)
+    def dispatch(self, request, *args, **kwargs):
+        self.object = time = self.get_object()
+        if time.owner != request.user:
+            try:
+                time.client.team_set.get(leaders=request.user)
+            except (AttributeError, ObjectDoesNotExist):
+                return http.HttpResponseForbidden(
+                    "You cannot access this resource"
+                )
+        return super(TimeDetail, self).dispatch(request, *args, **kwargs)
+
+    def set_approval(self):
+        try:
+            approvals.Approval.objects.get_or_create(
+                time=self.object,
+                defaults={
+                    "approver": self.request.user,
+                }
+            )
+        except Exception as exc:
+            raise
+
+    def remove_approval(self):
+        try:
+            approvals.Approval.objects.get(time=self.object).delete()
+        except ObjectDoesNotExist:
+            pass
+
+    def post(self, request, *args, **kwargs):
+        if request.META.get("HTTP_ACCEPT", "").startswith("application/json"):
+            payload = request.POST.dict()
+            try:
+                is_approved = payload["approved"]
+            except KeyError:
+                return http.HttpResponseBadRequest(
+                    "Cannot process your request."
+                )
+            else:
+                if is_approved:
+                    self.set_approval()
+                else:
+                    self.remove_approval()
+                return http.HttpResponse(
+                    json.dumps({"success": True}),
+                    content_type="application/json"
+                )
+        else:
+            return http.HttpResponseBadRequest(
+                "Not supported"
+            )
 
 
 class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
@@ -77,7 +148,8 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
                     {
                         "csrfmiddlewaretoken": "sasa",
                         "form": form,
-                        "object_list": self.object_list,
+                        "time_sheets": self.object_list,
+                        "show_author": False,
                         "total_hours": "{0:.1f}".format(hours_total),
                     }
                 )
@@ -111,3 +183,27 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
     @method_decorator(private_resource("name"))
     def post(self, *args, **kwargs):
         return super(UserTime, self).post(*args, **kwargs)
+
+
+class TeamTime(TeamDetail):
+    """A read-only view on the time-sheets of a team.
+    """
+    template_name = "rheia/team_time.html"
+
+    def get_context_data(self, **kwargs):
+        data = super(TeamTime, self).get_context_data(**kwargs)
+        data.update(
+            {
+                "time_sheets": (
+                    get_time_for_team(self.team)
+                ),
+                "media": forms.Media(
+                    js=("js/table/approval.js",)
+                )
+            }
+        )
+        return data
+
+    @method_decorator(ensure_csrf_cookie)
+    def get(self, *args, **kwargs):
+        return super(TeamTime, self).get(*args, **kwargs)

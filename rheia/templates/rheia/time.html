@@ -11,44 +11,9 @@
         <h1>{{ user.username }}'s Logged Time</h1>
     {% endif %}
 
-    {% if object_list.count %}
-        <div class="timesheets">
-            <h2>Time Sheets</h2>
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Start Date</th>
-                    <th>Start Time</th>
-                    <th>End Date</th>
-                    <th>End Time</th>
-                    <th>Minutes</th>
-                    <th>Active</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for item in object_list %}
-                    <tr>
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ item.start_date }}</td>
-                        <td>{{ item.start_time|default_if_none:"-" }}</td>
-                        <td>{{ item.end_date|default_if_none:"-" }}</td>
-                        <td>{{ item.end_time|default_if_none:"-" }}</td>
-                        <td>{{ item.minutes|default_if_none:"-" }}</td>
-                        <td>{% if item.is_active %}&#10004;{% endif %}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-                <tfoot>
-                <tr>
-                    <th colspan="7" class="timesheet-total">
-                        Total logged time: {{ total_hours }} hours.
-                    </th>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-    {% endif %}
+    <div class="user-timesheets">
+        {% include "rheia/partials/time_sheet_table.html" %}
+    </div>
 
     <div class="timeform">
         <h2>Log time</h2>

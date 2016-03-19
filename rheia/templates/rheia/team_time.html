@@ -1,0 +1,16 @@
+{% extends "rheia/base_site.html" %}
+{% block title %}Team Time | Rheia{% endblock %}
+{% block content %}
+    <h1>Team: {{ team_name }}</h1>
+    <h2>Recently logged time</h2>
+
+    {% with show_author=1 %}
+    {% include "rheia/partials/time_sheet_table.html" %}
+    {% endwith %}
+
+{% endblock content %}
+
+{% block footer %}
+    {{ block.super }}
+    {{ media }}
+{% endblock footer %}

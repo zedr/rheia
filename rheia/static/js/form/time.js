@@ -15,7 +15,7 @@
     );
   }
 
-  function initialize() {
+  function initialise() {
     function updateTime(event) {
       $(event.data).val(getCurrentTime);
     }
@@ -30,6 +30,6 @@
     }
   }
 
-  $(NS.document).ready(initialize);
+  $(NS.document).ready(initialise);
 
 }(this));

@@ -43,6 +43,10 @@ class Team(models.Model):
     def url(self):
         return reverse_lazy("team", args=(self.uid,))
 
+    @property
+    def time_url(self):
+        return reverse_lazy("team_time", args=(self.uid,))
+
     def serialise(self):
         return {
             "name": self.name,

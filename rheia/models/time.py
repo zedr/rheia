@@ -1,4 +1,5 @@
 from django.core.exceptions import ObjectDoesNotExist
+from django.core.urlresolvers import reverse_lazy
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth import models as auth_models
@@ -108,6 +109,10 @@ class LoggedTime(models.Model):
             time=self,
             approver=user
         )
+
+    @property
+    def url(self):
+        return reverse_lazy("time", args=(self.id, ))
 
     def __unicode__(self):
         if self.duration is None:

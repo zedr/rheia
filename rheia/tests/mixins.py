@@ -68,6 +68,9 @@ class TeamsMixin(object):
 
     It depends on the UsersMixin.
     """
+    become_leader = True
+    become_member = False
+
     def setUp(self):
         super(TeamsMixin, self).setUp()
         self.create_my_team()
@@ -79,10 +82,12 @@ class TeamsMixin(object):
             team.clients.add(self.categories["clients"][0])
         except (AttributeError, KeyError, IndexError):
             pass
-        else:
-            team.save()
-        team.leaders = (self.user,)
-        team.members = (self.some_other_user,)
+
+        if self.become_leader:
+            team.leaders.add(self.user)
+        elif self.become_member:
+            team.members.add(self.user)
+        team.members.add(self.some_other_user)
         team.save()
         self.team = team
 
