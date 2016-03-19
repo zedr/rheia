@@ -62,7 +62,7 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
     @method_decorator(private_resource("name"))
     def get(self, *args, **kwargs):
         assigned_clients= self.get_assigned_clients()
-        if self.get_activities().count() or not self.get_products().count():
+        if self.get_activities().count() and self.get_products().count():
             if assigned_clients.count():
                 form = self.form_class()
                 seconds = self.total_logged_seconds

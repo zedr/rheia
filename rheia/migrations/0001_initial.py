@@ -25,6 +25,14 @@ class Migration(migrations.Migration):
             },
         ),
         migrations.CreateModel(
+            name='Approval',
+            fields=[
+                ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
+                ('approved', models.DateTimeField(auto_now_add=True)),
+                ('approver', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+            ],
+        ),
+        migrations.CreateModel(
             name='Client',
             fields=[
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
@@ -95,5 +103,10 @@ class Migration(migrations.Migration):
             model_name='loggedtime',
             name='task_id',
             field=models.ForeignKey(to='rheia.TaskId', null=True),
+        ),
+        migrations.AddField(
+            model_name='approval',
+            name='time',
+            field=models.ForeignKey(to='rheia.LoggedTime'),
         ),
     ]
