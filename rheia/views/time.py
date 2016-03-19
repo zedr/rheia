@@ -1,9 +1,10 @@
-from django.core.urlresolvers import reverse_lazy
+from django import http
 from django.shortcuts import render
+from django.db.models.query_utils import Q
+from django.views.generic.list import ListView
+from django.core.urlresolvers import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic.edit import BaseCreateView
-from django.views.generic.list import ListView
-from django import http
 
 from rheia.forms import TimeForm
 from rheia.models import time, categories
@@ -45,8 +46,9 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
     def get_assigned_clients(self):
         """Get the Clients that are assigned to this user.
         """
+        user = self.request.user
         return categories.Client.objects.filter(
-            team__leaders=self.request.user
+            Q(team__leaders=user) | Q(team__members=user)
         )
 
     def get_activities(self):
@@ -65,6 +67,7 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         if self.get_activities().count() and self.get_products().count():
             if assigned_clients.count():
                 form = self.form_class()
+                form.fields["client"].queryset = assigned_clients
                 seconds = self.total_logged_seconds
                 hours_total = (seconds / 60.0) / 60
                 return self.render_to_response(
