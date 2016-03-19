@@ -2,16 +2,17 @@ from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 
 from rheia.models import categories
+from rheia.models import teams
 
 
-class AuthenticatedTestsMixin(object):
+class UsersMixin(object):
     """A mixin for test-cases that employ authenticated users.
     """
     user_name = "my_user"
     user_pass = "top_secret"
 
     def setUp(self):
-        super(AuthenticatedTestsMixin, self).setUp()
+        super(UsersMixin, self).setUp()
         self.user = User.objects.create_user(
             username=self.user_name,
             email='my_user@example.com',
@@ -38,7 +39,7 @@ class AuthenticatedTestsMixin(object):
 
 
 class CategoriesMixin(object):
-    """A mixin test-cases that depend on the presence of categories.
+    """A mixin for test-cases that depend on the presence of categories.
 
     This mixin will also associated the test client user with one Project
     category.
@@ -48,11 +49,43 @@ class CategoriesMixin(object):
         """Create a few categories and associate them to a user.
         """
         super(CategoriesMixin, self).setUp()
-        category = categories.Client.objects.create(
+        client = categories.Client.objects.create(
             name="TCD"
         )
-        category.assigned_users.add(self.user)
-        category.save()
-        self.categories = {"clients": [category]}
-        categories.Product.objects.create(name="Rheia")
-        categories.Activity.objects.create(name="Software development")
+        product = categories.Product.objects.create(name="Rheia")
+        activity = categories.Activity.objects.create(
+            name="Software development"
+        )
+        self.categories = {
+            "clients": [client],
+            "products": [product],
+            "activities": [activity]
+        }
+
+
+class TeamsMixin(object):
+    """A mixin for test-cases that depend on the presence of teams.
+
+    It depends on the UsersMixin.
+    """
+    def setUp(self):
+        super(TeamsMixin, self).setUp()
+        self.create_my_team()
+
+    def create_my_team(self):
+        team = teams.Team.objects.create(name="TCD Group B")
+        team.save()
+        try:
+            team.clients.add(self.categories["clients"][0])
+        except (AttributeError, KeyError, IndexError):
+            pass
+        else:
+            team.save()
+        team.leaders = (self.user,)
+        team.members = (self.some_other_user,)
+        team.save()
+        self.team = team
+
+    @property
+    def my_team_url(self):
+        return self.team.url

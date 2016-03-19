@@ -30,7 +30,6 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(verbose_name='ID', serialize=False, auto_created=True, primary_key=True)),
                 ('name', models.CharField(max_length=1024)),
                 ('first_created', models.DateTimeField(auto_now_add=True)),
-                ('assigned_users', models.ManyToManyField(to=settings.AUTH_USER_MODEL, blank=True)),
             ],
             options={
                 'abstract': False,

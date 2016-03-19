@@ -18,10 +18,6 @@ class BaseCategory(models.Model):
 class Client(BaseCategory):
     """A Client of the organisation.
     """
-    assigned_users = models.ManyToManyField(
-        auth_models.User,
-        blank=True
-    )
 
     def serialise(self):
         return {

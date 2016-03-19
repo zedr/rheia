@@ -2,10 +2,10 @@ from django.test import TestCase
 from django.db import IntegrityError
 
 from rheia.models import LoggedTime
-from rheia.tests.mixins import AuthenticatedTestsMixin
+from rheia.tests.mixins import UsersMixin
 
 
-class LoggedTimeTests(AuthenticatedTestsMixin, TestCase):
+class LoggedTimeTests(UsersMixin, TestCase):
     """Tests for the LoggedTime model.
     """
 

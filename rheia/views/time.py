@@ -46,7 +46,7 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         """Get the Clients that are assigned to this user.
         """
         return categories.Client.objects.filter(
-            assigned_users=self.request.user
+            team__leaders=self.request.user
         )
 
     def get_activities(self):
@@ -61,9 +61,9 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
 
     @method_decorator(private_resource("name"))
     def get(self, *args, **kwargs):
-        associated_clients = self.get_assigned_clients()
+        assigned_clients= self.get_assigned_clients()
         if self.get_activities().count() or not self.get_products().count():
-            if associated_clients.count():
+            if assigned_clients.count():
                 form = self.form_class()
                 seconds = self.total_logged_seconds
                 hours_total = (seconds / 60.0) / 60

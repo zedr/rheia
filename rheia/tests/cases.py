@@ -1,9 +1,9 @@
 from django.test import TestCase
 
-from rheia.tests.mixins import AuthenticatedTestsMixin, CategoriesMixin
+from rheia.tests.mixins import UsersMixin, CategoriesMixin, TeamsMixin
 
 
-class RheiaTestCase(CategoriesMixin, AuthenticatedTestsMixin, TestCase):
+class RheiaTestCase(TeamsMixin, CategoriesMixin, UsersMixin, TestCase):
     """
     A test case for Rheia.
     """

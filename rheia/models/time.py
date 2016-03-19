@@ -1,9 +1,11 @@
+from django.core.exceptions import ObjectDoesNotExist
 from django.db import models
 from django.utils import timezone
 from django.contrib.auth import models as auth_models
 
 from rheia.utils.time import today
 from rheia.models import categories
+from rheia.models import approvals
 
 
 class LoggedTime(models.Model):
@@ -87,6 +89,25 @@ class LoggedTime(models.Model):
         """Is this time currently being tracked?
         """
         return True if self.duration is None else False
+
+    @property
+    def is_approved(self):
+        """This time has been approved.
+        """
+        try:
+            approvals.Approval.objects.get(time=self)
+        except ObjectDoesNotExist:
+            return False
+        else:
+            return True
+
+    def approve(self, user):
+        """Approve this time, attributing the action to a user.
+        """
+        approvals.Approval.objects.create(
+            time=self,
+            approver=user
+        )
 
     def __unicode__(self):
         if self.duration is None:
