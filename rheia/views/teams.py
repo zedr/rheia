@@ -35,6 +35,11 @@ class TeamDetailView(DetailView):
     def members(self):
         return self.object.members.all()
 
+    @property
+    @cache_on_view
+    def clients(self):
+        return self.object.clients.all()
+
     def check_for_leadership(self):
         return self.check_if_user_in_group(self.request.user, self.leaders)
 
@@ -50,6 +55,7 @@ class TeamDetailView(DetailView):
                 {
                     "team_name": team.name,
                     "roster": (
+                        ("Clients", (client.name for client in self.clients)),
                         ("Leaders", _names(self.leaders)),
                         ("Members", _names(self.members)),
                     ),

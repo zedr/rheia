@@ -23,6 +23,11 @@ class Client(BaseCategory):
         blank=True
     )
 
+    def serialise(self):
+        return {
+            "name": self.name,
+        }
+
 
 class Product(BaseCategory):
     """A Project or a Product associated with a particular Client.
