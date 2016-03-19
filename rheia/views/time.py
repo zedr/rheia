@@ -61,13 +61,16 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         """
         return categories.Product.objects.all()
 
+    def get_form(self, *args):
+        form = super(UserTime, self).get_form(*args)
+        form.fields["client"].queryset = self.get_assigned_clients()
+        return form
+
     @method_decorator(private_resource("name"))
     def get(self, *args, **kwargs):
-        assigned_clients= self.get_assigned_clients()
+        form = self.get_form()
         if self.get_activities().count() and self.get_products().count():
-            if assigned_clients.count():
-                form = self.form_class()
-                form.fields["client"].queryset = assigned_clients
+            if form.assigned_clients.count():
                 seconds = self.total_logged_seconds
                 hours_total = (seconds / 60.0) / 60
                 return self.render_to_response(
@@ -104,3 +107,7 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
                 )
             }
         )
+
+    @method_decorator(private_resource("name"))
+    def post(self, *args, **kwargs):
+        return super(UserTime, self).post(*args, **kwargs)

@@ -15,6 +15,7 @@ class TimeFieldTests(RheiaTestCase):
     def test_form_field_is_visible_in_the_time_page(self):
         self.login()
         response = self.client.get(self.user_time_url)
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, "Duration")
 
     def test_can_submit_valid_time_duration_strings_to_time_form(self):

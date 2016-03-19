@@ -68,7 +68,7 @@ class UserViewsTests(RheiaTestCase):
             "user_time",
             args=(self.user.username,)
         )
-        self.client.post(
+        response = self.client.post(
             url,
             {
                 "client": 1,
@@ -78,8 +78,10 @@ class UserViewsTests(RheiaTestCase):
                 "duration": "10m",
                 "start_date": ["2016-03-17"],
                 "notes": u"Hello"
-            }
+            },
+            follow=True
         )
+        self.assertEqual(response.status_code, 200)
         self.assertTrue(
             LoggedTime.objects.filter(owner=self.user).get(notes="Hello")
         )
@@ -91,6 +93,12 @@ class UserViewsTests(RheiaTestCase):
                 "user_time",
                 args=(self.some_other_user.username,)
             ),
-            {"asasas": 1}
+            {"asasas": 1},
+            follow=True
         )
-        self.assertEqual(response.status_code, 400)
+        try:
+            self.assertNotEqual(response.status_code, 200)
+        except AssertionError:
+            self.fail("Returned: {0} {1}".format(
+                response.status_code, response.content
+            ))

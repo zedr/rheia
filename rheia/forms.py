@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import widgets
+from django.core.exceptions import ValidationError
 
 from bootstrap3_datepicker.widgets import DatePickerInput
 
@@ -71,3 +72,20 @@ class TimeForm(forms.ModelForm):
 
     class Media(object):
         js = ("js/form/time.js",)
+
+    @property
+    def assigned_clients(self):
+        return self.fields["client"].queryset
+
+    def clean(self):
+        """
+        Ensure the user is associated with the targeted client.
+        :return:
+        """
+        cleaned_data = super(TimeForm, self).clean()
+        client = cleaned_data.get("client", None)
+        if client and client not in self.assigned_clients:
+            raise ValidationError(
+                "You are not associated with this Client: {0}".format(client)
+            )
+        return cleaned_data
