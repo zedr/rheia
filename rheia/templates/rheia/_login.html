@@ -1,0 +1,42 @@
+{% load staticfiles %}
+{% block title %}Welcome to Rheia{% endblock %}
+{% block content %}
+<div class="logo">
+    <img src="{% static 'img/rheia.svg' %}"/>
+</div>
+<h1>Rheia</h1>
+<h2>Your companion of time</h2>
+
+
+<div id="content-main">
+<form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
+  <div class="form-row">
+    {{ form.username.errors }}
+    {{ form.username.label_tag }} {{ form.username }}
+  </div>
+  <div class="form-row">
+    {{ form.password.errors }}
+    {{ form.password.label_tag }} {{ form.password }}
+    <input type="hidden" name="next" value="{{ next }}" />
+  </div>
+  {% url 'admin_password_reset' as password_reset_url %}
+  {% if password_reset_url %}
+  <div class="password-reset-link">
+    <a href="{{ password_reset_url }}">Forgotten your password or username?</a>
+  </div>
+  {% endif %}
+  <div class="submit-row">
+    <label>&nbsp;</label><button class="btn btn-primary btn-lg" type="submit">Log in</button>
+  </div>
+</form>
+
+<script type="text/javascript">
+document.getElementById('id_username').focus()
+</script>
+</div>
+{% endblock content %}
+
+{% block navbar %}
+{% endblock navbar %}
+{% block sidebar %}
+{% endblock sidebar %}

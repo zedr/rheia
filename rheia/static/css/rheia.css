@@ -3,6 +3,10 @@ li {
     font-size: medium;
 }
 
+body.login {
+    background-color: #B0C4DE;
+}
+
 #header {
     background-color: white;
 }
@@ -16,19 +20,35 @@ li {
     color: #222222;
     text-align: center;
 }
+
 #branding h1 {
     font-size: xx-large;
 }
+
 #branding h2 {
     font-size: x-large;
 }
 
-div.breadcrumbs {
-    font-size: medium;
+nav.navbar {
+    background-color: cornflowerblue;
+    border-color: azure;
+    border-bottom-width: 1em;
+    color: white;
+}
+
+nav .logo img {
+    float: left;
+    width: 48px;
+    height: 48px;
+}
+
+nav .navbar-brand strong,
+nav ul.nav li a.nav {
+    color: white;
 }
 
 .logo img {
-    width: 50%;
+    width: 25%;
     display: block;
     margin: 0 auto;
 }
@@ -37,21 +57,17 @@ div.breadcrumbs {
     margin-top: 32px;
 }
 
+
 #container {
     min-width: auto;
-}
-
-.endlinks {
-    float: right;
 }
 
 .timeform {
     max-width: 20em;
 }
 
-.user_timesheets .timesheets {
-    margin-top: 40px;
-    float:right;
+.user-timesheets .timesheets {
+    float: right;
 }
 
 .timesheet-total {
