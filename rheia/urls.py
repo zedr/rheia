@@ -1,24 +1,11 @@
-"""Rheia URL Configuration
-
-The `urlpatterns` list routes URLs to views. For more information please see:
-    https://docs.djangoproject.com/en/1.8/topics/http/urls/
-Examples:
-Function views
-    1. Add an import:  from my_app import views
-    2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
-    1. Add an import:  from other_app.views import Home
-    2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
-Including another URLconf
-    1. Add an import:  from blog import urls as blog_urls
-    2. Add a URL to urlpatterns:  url(r'^blog/', include(blog_urls))
-"""
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.shortcuts import redirect
 
 from rheia.views.auth import login, logout, whoami, user_detail_view
 from rheia.views import time
 from rheia.views import teams
+
+from rheia import api
 
 urlpatterns = [
     # Auth
@@ -59,6 +46,10 @@ urlpatterns = [
         time.UserTime.as_view(),
         name="user_time"
     ),
+
+    # API
+    url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/', include(api.router.urls)),
 
     # Redirect
     url("^$", lambda request: redirect("login"))

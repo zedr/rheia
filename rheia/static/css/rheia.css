@@ -47,7 +47,8 @@ nav ul.nav li a.nav {
     color: white;
 }
 
-.logo img {
+.logo img,
+.logo-mini {
     width: 25%;
     display: block;
     margin: 0 auto;
@@ -89,4 +90,8 @@ ul.list-group-submenu {
 .list-group-item {
     background-color: #eeeeee;
 
+}
+
+.navbar-api {
+    padding: 8px
 }
