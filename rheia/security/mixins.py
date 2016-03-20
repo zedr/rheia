@@ -3,7 +3,7 @@ from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 
 from rheia.utils.cache import cache_on_view
-from security.decorators import private_resource
+from rheia.security.decorators import private_resource
 
 
 class TeamResourceMixin(object):
