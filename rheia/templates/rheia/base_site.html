@@ -1,4 +1,4 @@
-{% load staticfiles %}{% load bootstrap3 %}<!DOCTYPE html>
+{% load staticfiles %}{% load bootstrap3 %}{% load sidebar_tags %}<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -79,21 +79,7 @@
         {% endblock content %}
         </div>
         {% block sidebar %}
-            <div class="col-sm-3 col-md-2 sidebar">
-                <ul class="nav nav-sidebar">
-                    <li class="active"><a href="{% url "whoami" %}">My Home</a>
-                    </li>
-                    <li><a href="#">My Time</a></li>
-                    <li>
-                        <a href="#">My Teams:</a>
-                        <ul>
-                            <li><a href="#">Foo</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#">My Status</a></li>
-                    <li><a href="#">Reports</a></li>
-                </ul>
-            </div>
+            {% user_sidebar %}
         {% endblock sidebar %}
     </div>
 </div>

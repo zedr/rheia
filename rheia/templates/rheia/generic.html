@@ -1,5 +1,9 @@
 {% extends "rheia/base_site.html" %}
-{% block title %}Myself | Rheia{% endblock %}
+{% block title %}{{ title }} | Rheia{% endblock %}
 {% block content %}
-    <p>{{ message }}</p>
+    <h1>{{ title }}</h1>
+    <div class="alert alert-{{ level|default:"info" }}"
+         role="alert">
+    {{ message }}
+    </div>
 {% endblock content %}

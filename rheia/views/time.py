@@ -164,7 +164,8 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
                             "You do not have any Clients "
                             "currently associated with you. "
                             "Please contact an administrator for assistance."
-                        )
+                        ),
+                        "level": "warning"
                     }
                 )
         return render(
@@ -176,7 +177,8 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
                 "message": (
                     "The administrator has not yet completed the required "
                     "Category configuration for this instance of Rheia. "
-                )
+                ),
+                "level": "warning"
             }
         )
 

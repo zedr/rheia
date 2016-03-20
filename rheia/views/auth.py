@@ -1,4 +1,3 @@
-from django.db.models.query_utils import Q
 from django.shortcuts import redirect, render
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
@@ -9,13 +8,13 @@ from django.contrib.auth.views import (
     logout as django_logout)
 
 from rheia import defaults
+from rheia.queries.teams import get_user_teams
 from rheia.security.decorators import private_resource
-from rheia.models import Team
 from rheia.serializers.universal import serialise
 
 
 def _user_detail_url(user):
-    return reverse("user", args=(user.username, ))
+    return reverse("user", args=(user.username,))
 
 
 @csrf_exempt
@@ -47,11 +46,8 @@ def whoami(request):
 @private_resource("name")
 @login_required(login_url=defaults.LOGIN_URL)
 def user_detail_view(request, name):
-    user_teams = Team.objects.filter(
-        Q(members=request.user) | Q(leaders=request.user)
-    )
     context = RequestContext(request, {
         "user": request.user,
-        "teams": serialise(user_teams)
+        "teams_count": get_user_teams(request.user).count()
     })
     return render(request, "rheia/user.html", context)

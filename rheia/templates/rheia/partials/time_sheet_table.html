@@ -28,20 +28,29 @@
                     <td>{{ item.start_time|default_if_none:"-" }}</td>
                     <td>{{ item.end_date|default_if_none:"-" }}</td>
                     <td>{{ item.end_time|default_if_none:"-" }}</td>
-                    <td>{{ item.minutes|default_if_none:"-" }}</td>
+                    <td>{{ item.minutes|default:"-" }}</td>
                     <td>{% if item.is_active %}&#10004;{% endif %}</td>
                     <td>
-                        {% if is_a_leader %}
-                            <button data-url="{{ item.url }}" class="btn-group btn-group-sm btn-approval">
-                        {% endif %}
+                        {% if not item.is_active %}
+                            {% if is_a_leader %}
+                                <button data-url="{{ item.url }}"
+                                        class="btn-group btn-group-sm btn-approval">
+                            {% endif %}
                         {% if item.is_approved %}
-                            <span data-approved title="Approved" class="time-approved ok glyphicon glyphicon glyphicon-ok-circle" aria-hidden="true"></span>
+                            <span data-approved
+                                  title="Approved"
+                                  class="time-approved ok glyphicon glyphicon glyphicon-ok-circle"
+                                  aria-hidden="true"></span>
                         {% else %}
-                            <span title="Not approved yet" class="time-pending attention glyphicon glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                            <span title="Not approved yet"
+                                  class="time-pending attention glyphicon glyphicon glyphicon-exclamation-sign"
+                                  aria-hidden="true"></span>
                         {% endif %}
                         {% if is_a_leader %}
                             </button>
                         {% endif %}
+                        {% endif %}
+                    </td>
                     </td>
                 </tr>
             {% endfor %}
