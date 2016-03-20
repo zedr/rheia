@@ -19,7 +19,7 @@ doc: env
 	$(virtualenv) cd docs && make html
 
 serve: env
-	$(virtualenv) $(manage) runserver 127.1:8000
+	$(virtualenv) $(manage) runserver 0:8000
 
 test: env
 	$(virtualenv) $(manage) test rheia
