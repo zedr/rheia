@@ -83,7 +83,7 @@ class TimeForm(forms.ModelForm):
         :return:
         """
         cleaned_data = super(TimeForm, self).clean()
-        duration = cleaned_data.pop("duration", None)
+        duration = cleaned_data.get("duration", None)
         if not duration:
             cleaned_data["duration"] = None
         client = cleaned_data.get("client", None)
