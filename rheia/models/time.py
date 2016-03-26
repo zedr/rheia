@@ -49,21 +49,16 @@ class LoggedTime(models.Model):
 
     @property
     def minutes(self):
-        if self.duration:
-            return int(round(self.duration / 60.0, 0))
-        else:
-            return 0
+        return int(round(self.duration / 60.0, 0)) if self.duration else 0
 
     @property
     def hours(self):
-        if self.minutes:
-            return round(self.minutes / 60.0, 1)
-        else:
-            return 0
+        return round(self.minutes / 60.0, 1) if self.minutes else 0
 
     @property
     def start_datetime(self):
-        return timezone.datetime.combine(self.start_date, self.start_time)
+        if self.start_date and self.start_time:
+            return timezone.datetime.combine(self.start_date, self.start_time)
 
     @property
     def timedelta(self):
@@ -72,7 +67,7 @@ class LoggedTime(models.Model):
 
     @property
     def end_datetime(self):
-        if self.duration and self.start_date and self.start_time:
+        if self.duration:
             return self.start_datetime + self.timedelta
 
     @property
