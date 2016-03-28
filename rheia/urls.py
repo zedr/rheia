@@ -2,8 +2,7 @@ from django.conf.urls import url, include
 from django.shortcuts import redirect
 
 from rheia.views.auth import login, logout, whoami, user_detail_view
-from rheia.views import time, teams, status
-
+from rheia.views import time, teams, reports, status
 from rheia import api
 
 urlpatterns = [
@@ -45,9 +44,15 @@ urlpatterns = [
         status.status_view,
         name="user_status"
     ),
+    url(
+        "^reports$",
+        reports.Reports.as_view(),
+        name="reports"
+    ),
 
     # API
-    url(r'^api/auth/', include('rest_framework.urls', namespace='rest_framework')),
+    url(r'^api/auth/',
+        include('rest_framework.urls', namespace='rest_framework')),
     url(r'^api/', include(api.router.urls)),
 
     # Redirect

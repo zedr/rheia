@@ -6,12 +6,15 @@
         <li class="{{ urls.time.class }}">
             <a href="{{ urls.time.href }}">My Time</a>
         </li>
-        {% for team in teams %}
-        <li><a href="{{ team.href }}">My Team: <em>{{ team.name }}</em></a></li>
-        {% endfor %}
-        <li><a href="#">My Reports</a></li>
+        <li class="{{ urls.reports.class }}">
+            <a href="{{ urls.reports.href }}">My Reports</a>
+        </li>
+        <li><a href="#">My Status</a></li>
         <li class="{{ urls.status.class }}">
             <a href="{{ urls.status.href }}">My Status</a>
         </li>
+        {% for team in teams %}
+            <li><a href="{{ team.href }}">My Team: <em>{{ team.name }}</em></a></li>
+        {% endfor %}
     </ul>
 </div>

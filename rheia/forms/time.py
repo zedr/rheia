@@ -2,23 +2,12 @@ from django import forms
 from django.forms import widgets
 from django.core.exceptions import ValidationError
 
-from bootstrap3_datepicker.widgets import DatePickerInput
-
 from rheia.models import LoggedTime
 from rheia.fields.time import DurationField
 from rheia.validators.time import is_valid_duration
 from rheia.models import categories
 from rheia.utils.time import today_as_text
-
-
-class _DatePickerInput(DatePickerInput):
-    @property
-    def media(self):
-        # TODO: find a better way to do the override...
-        media = super(_DatePickerInput, self).media
-        media._css = {'all': ("css/datepicker3.css",)}
-        media._js = ("js/lib/bootstrap-datepicker.js",)
-        return media
+from rheia.forms.inputs import DatePickerInput
 
 
 class TimeForm(forms.ModelForm):
@@ -38,7 +27,7 @@ class TimeForm(forms.ModelForm):
     activity = forms.ModelChoiceField(categories.Activity.objects.all())
     start_date = forms.DateField(
         initial=today_as_text,
-        widget=_DatePickerInput(
+        widget=DatePickerInput(
             format="%Y-%m-%d",
             options={
                 # Highlight today

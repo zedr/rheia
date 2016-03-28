@@ -21,6 +21,9 @@ doc: env
 serve: env
 	$(virtualenv) $(manage) runserver 0:8000
 
+shell: env
+	$(virtualenv) $(manage) shell
+
 test: env
 	$(virtualenv) $(manage) test rheia
 

@@ -13,7 +13,11 @@ class Team(models.Model):
     """
     name = models.CharField(max_length=1024, unique=True)
     uid = models.CharField(max_length=1024, unique=True, editable=False)
-    leaders = models.ManyToManyField(User, blank=False)
+    leaders = models.ManyToManyField(
+        User,
+        blank=False,
+        related_name="leaders"
+    )
     members = models.ManyToManyField(
         User,
         blank=True,
@@ -33,6 +37,11 @@ class Team(models.Model):
     def leader_names(self):
         for leader in self.leaders.all():
             yield fullname_or_username(leader)
+
+    @property
+    def member_names(self):
+        for member in self.members.all():
+            yield fullname_or_username(member)
 
     def save(self, *args, **kwargs):
         if not self.uid:

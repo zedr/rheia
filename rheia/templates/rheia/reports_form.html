@@ -1,0 +1,26 @@
+{% extends "rheia/base_site.html" %}
+{% load bootstrap3 %}
+
+{% block title %}Reports | Rheia{% endblock %}
+
+{% block content %}
+<div class="timeform">
+    <h2>Generate a report</h2>
+    <form class="form"
+          action=""
+          method="post">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+            <button type="submit" class="btn btn-primary" value="Submit">
+                {% bootstrap_icon "star" %} Submit
+            </button>
+        {% endbuttons %}
+    </form>
+</div>
+{% endblock content %}
+
+{% block footer %}
+    {{ block.super }}
+    {{ form.media }}
+{% endblock footer %}

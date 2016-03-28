@@ -118,19 +118,20 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         """Get the Clients that are assigned to this user.
         """
         user = self.request.user
-        return categories.Client.objects.filter(
+        qs = categories.Client.objects.filter(
             Q(team__leaders=user) | Q(team__members=user)
         )
+        return qs.order_by("name").distinct()
 
     def get_activities(self):
         """Get all the available activities.
         """
-        return categories.Activity.objects.all()
+        return categories.Activity.objects.all().order_by("name")
 
     def get_products(self):
         """Get all the available products
         """
-        return categories.Product.objects.all()
+        return categories.Product.objects.all().order_by("name")
 
     def get_form(self, *args):
         form = super(UserTime, self).get_form(*args)
