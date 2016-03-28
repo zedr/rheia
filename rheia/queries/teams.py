@@ -4,6 +4,7 @@ from rheia.models import Team
 
 
 def get_user_teams(user):
-    return Team.objects.filter(
-        Q(members=user) | Q(leaders=user)
-    )
+    """Get the teams for this user.
+    """
+    qs = Team.objects.filter(Q(members=user) | Q(leaders=user)).distinct()
+    return qs.order_by("name")
