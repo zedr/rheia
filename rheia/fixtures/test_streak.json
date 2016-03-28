@@ -1,0 +1,1040 @@
+[
+  {
+    "fields": {
+      "email": "",
+      "is_superuser": true,
+      "last_login": "2016-03-28T21:48:12.190Z",
+      "is_active": true,
+      "username": "my_user",
+      "first_name": "",
+      "last_name": "",
+      "is_staff": true,
+      "user_permissions": [],
+      "password": "",
+      "groups": [],
+      "date_joined": "2016-03-28T16:47:05.106Z"
+    },
+    "model": "auth.user",
+    "pk": 1
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.734Z",
+      "start_date": "2016-03-28",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:53.734Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 7
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.752Z",
+      "start_date": "2016-03-28",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.752Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 8
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-27T23:23:53.774Z",
+      "start_date": "2016-03-27",
+      "duration": 14400,
+      "last_modified": "2016-03-27T23:23:53.774Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 9
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-27T23:23:53.782Z",
+      "start_date": "2016-03-27",
+      "duration": 12600,
+      "last_modified": "2016-03-27T23:23:53.782Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 10
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-26T23:23:53.787Z",
+      "start_date": "2016-03-26",
+      "duration": 14400,
+      "last_modified": "2016-03-26T23:23:53.787Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 11
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-26T23:23:53.793Z",
+      "start_date": "2016-03-26",
+      "duration": 12600,
+      "last_modified": "2016-03-26T23:23:53.793Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 12
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-25T23:23:53.798Z",
+      "start_date": "2016-03-25",
+      "duration": 14400,
+      "last_modified": "2016-03-25T23:23:53.798Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 13
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-25T23:23:53.803Z",
+      "start_date": "2016-03-25",
+      "duration": 12600,
+      "last_modified": "2016-03-25T23:23:53.803Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 14
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-24T23:23:53.807Z",
+      "start_date": "2016-03-24",
+      "duration": 14400,
+      "last_modified": "2016-03-24T23:23:53.808Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 15
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-24T23:23:53.813Z",
+      "start_date": "2016-03-24",
+      "duration": 12600,
+      "last_modified": "2016-03-24T23:23:53.813Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 16
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-23T23:23:53.828Z",
+      "start_date": "2016-03-23",
+      "duration": 14400,
+      "last_modified": "2016-03-23T23:23:53.828Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 17
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.844Z",
+      "start_date": "2016-03-23",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.844Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 18
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.860Z",
+      "start_date": "2016-03-22",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:53.860Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 19
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.877Z",
+      "start_date": "2016-03-22",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.877Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 20
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.894Z",
+      "start_date": "2016-03-21",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:53.894Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 21
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.911Z",
+      "start_date": "2016-03-21",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.911Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 22
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.928Z",
+      "start_date": "2016-03-20",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:53.928Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 23
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.936Z",
+      "start_date": "2016-03-20",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.936Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 24
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.942Z",
+      "start_date": "2016-03-19",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:53.942Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 25
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.947Z",
+      "start_date": "2016-03-19",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.947Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 26
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.953Z",
+      "start_date": "2016-03-18",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:53.953Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 27
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.958Z",
+      "start_date": "2016-03-18",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.958Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 28
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.963Z",
+      "start_date": "2016-03-17",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:53.963Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 29
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.969Z",
+      "start_date": "2016-03-17",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.969Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 30
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.980Z",
+      "start_date": "2016-03-16",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:53.980Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 31
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:53.996Z",
+      "start_date": "2016-03-16",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:53.997Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 32
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.013Z",
+      "start_date": "2016-03-15",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.013Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 33
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.029Z",
+      "start_date": "2016-03-15",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.029Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 34
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.045Z",
+      "start_date": "2016-03-14",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.045Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 35
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.061Z",
+      "start_date": "2016-03-14",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.061Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 36
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.077Z",
+      "start_date": "2016-03-13",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.077Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 37
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.085Z",
+      "start_date": "2016-03-13",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.085Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 38
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.090Z",
+      "start_date": "2016-03-12",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.090Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 39
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.095Z",
+      "start_date": "2016-03-12",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.095Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 40
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.100Z",
+      "start_date": "2016-03-11",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.100Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 41
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.106Z",
+      "start_date": "2016-03-11",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.106Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 42
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.111Z",
+      "start_date": "2016-03-10",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.111Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 43
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.115Z",
+      "start_date": "2016-03-10",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.115Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 44
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.130Z",
+      "start_date": "2016-03-09",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.130Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 45
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.146Z",
+      "start_date": "2016-03-09",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.146Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 46
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.163Z",
+      "start_date": "2016-03-08",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.163Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 47
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.179Z",
+      "start_date": "2016-03-08",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.179Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 48
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.196Z",
+      "start_date": "2016-03-07",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.196Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 49
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.214Z",
+      "start_date": "2016-03-07",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.214Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 50
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.229Z",
+      "start_date": "2016-03-06",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.229Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 51
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.234Z",
+      "start_date": "2016-03-06",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.234Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 52
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.239Z",
+      "start_date": "2016-03-05",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.239Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 53
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.245Z",
+      "start_date": "2016-03-05",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.245Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 54
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.250Z",
+      "start_date": "2016-03-04",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.250Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 55
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.255Z",
+      "start_date": "2016-03-04",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.255Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 56
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.261Z",
+      "start_date": "2016-03-03",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.261Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 57
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.266Z",
+      "start_date": "2016-03-03",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.266Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 58
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.281Z",
+      "start_date": "2016-03-02",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.282Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 59
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.298Z",
+      "start_date": "2016-03-02",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.298Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 60
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.315Z",
+      "start_date": "2016-03-01",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.315Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 61
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.332Z",
+      "start_date": "2016-03-01",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.332Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 62
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.349Z",
+      "start_date": "2016-02-29",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.349Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 63
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.367Z",
+      "start_date": "2016-02-29",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.367Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 64
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.382Z",
+      "start_date": "2016-02-28",
+      "duration": 14400,
+      "last_modified": "2016-03-28T23:23:54.382Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 65
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-28T23:23:54.387Z",
+      "start_date": "2016-02-28",
+      "duration": 12600,
+      "last_modified": "2016-03-28T23:23:54.387Z",
+      "client": null,
+      "activity": null,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 66
+  }
+]

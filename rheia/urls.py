@@ -2,8 +2,7 @@ from django.conf.urls import url, include
 from django.shortcuts import redirect
 
 from rheia.views.auth import login, logout, whoami, user_detail_view
-from rheia.views import time
-from rheia.views import teams
+from rheia.views import time, teams, status
 
 from rheia import api
 
@@ -42,9 +41,9 @@ urlpatterns = [
         name="user_time"
     ),
     url(
-        "^users/(?P<name>\w+)/time/$",
-        time.UserTime.as_view(),
-        name="user_time"
+        "^users/(?P<name>\w+)/status/$",
+        status.status_view,
+        name="user_status"
     ),
 
     # API

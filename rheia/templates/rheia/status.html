@@ -1,0 +1,19 @@
+{% extends "rheia/base_site.html" %}
+{% load staticfiles %}
+{% block title %}Status | Rheia{% endblock %}
+{% block content %}
+    <h1>Status</h1>
+    <p>
+        {% if total == 0 %}
+            No data yet.
+        {% elif total > 0 %}
+            Points: {{ streak }}
+        {% endif %}
+    </p>
+    <div>
+        {% if cup %}
+            <img class="cup" src="{% static 'img/' %}{{ cup }}_cup.svg">
+        {% endif %}
+    </div>
+
+{% endblock content %}

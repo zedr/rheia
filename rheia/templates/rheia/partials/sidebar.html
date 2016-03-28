@@ -10,6 +10,8 @@
         <li><a href="{{ team.href }}">My Team: <em>{{ team.name }}</em></a></li>
         {% endfor %}
         <li><a href="#">My Reports</a></li>
-        <li><a href="#">My Status</a></li>
+        <li class="{{ urls.status.class }}">
+            <a href="{{ urls.status.href }}">My Status</a>
+        </li>
     </ul>
 </div>

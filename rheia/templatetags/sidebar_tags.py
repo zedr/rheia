@@ -16,6 +16,7 @@ def user_sidebar(context):
     user = request.user
     home_url = reverse("user", args=(user,))
     time_url = reverse("user_time", args=(user, ))
+    status_url = reverse("user_status", args=(user, ))
     if request.user.is_authenticated():
         return {
             "teams": serialise(get_user_teams(user)),
@@ -27,6 +28,10 @@ def user_sidebar(context):
                 "time": {
                     "href": time_url,
                     "class": _link_class(time_url, path)
+                },
+                "status": {
+                    "href": status_url,
+                    "class": _link_class(status_url, path)
                 }
             }
         }
