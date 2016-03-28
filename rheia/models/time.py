@@ -30,7 +30,11 @@ class LoggedTime(models.Model):
     start_time = models.TimeField(default=None, null=True)
 
     # The quantity of time, in seconds, that was logged.
-    duration = models.IntegerField(null=True, default=None)
+    duration = models.IntegerField(
+        null=True,
+        default=None,
+        help_text="The quantity of time to log, in seconds."
+    )
 
     # The associated Client
     client = models.ForeignKey(categories.Client, null=True)
