@@ -31,9 +31,9 @@ if "%1" == "clean" (
 
 if "%1" == "virtualenv" (
     :virtualenv
-    virtualenv -q env
+    call virtualenv -q env
 	call %VIRTUALENV%
-	pip install --upgrade setuptools
+	call pip install --upgrade setuptools
 	goto:eof
 )
 
