@@ -28,20 +28,3 @@ class TeamTests(RheiaTestCase):
             Client.objects.filter(team__leaders=self.user).count(),
             0
         )
-
-    def test_team_time_page_can_be_accessed_by_leader(self):
-        #TODO: finish me!
-        pass
-
-    def test_team_time_page_can_be_accessed_by_member(self):
-        #TODO: finish me!
-        pass
-
-    def test_team_time_page_cannot_be_accessed_by_non_member(self):
-        #TODO: finish me!
-        pass
-
-    def test_team_time_page_displays_logged_and_approved_time(self):
-        #TODO: finish me!
-        pass
-
