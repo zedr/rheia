@@ -16,5 +16,8 @@ def get_user_teams(user):
 def get_managed_users(user):
     """Get all the users that are managed by a given user
     """
-    return User.objects.filter(members__leaders=user)
+    if user.is_superuser:
+        return User.objects.filter()
+    else:
+        return User.objects.filter(members__leaders=user)
 
