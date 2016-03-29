@@ -9,12 +9,12 @@ web framework.
 
 ### Windows
 On Windows, make sure the interpreter is available on the system "PATH". This
-can be configured in the Control Panel: 
+can be configured in the Control Panel:
     System and Security -> System -> Advanced System Settings: Environment Variables
 
 Add these two paths, separated by a semicolon, to the user variable PATH:
     C:\Python27;C:\Python27\Scripts
-    
+
 Next, install Pip, a Python package manager:
     1. Visit Pip's Installation Guide (see above)
     2. Download the "get-pip.py" file
@@ -32,10 +32,21 @@ Perform the following steps:
     4. Run the command "make db"
     5. Run the command "make user", and create your user's credentials
     6. Run the command "make serve"
-    
+
 Rheia will be available on http://localhost:8000 . Open your browser and visit the URL.
 
 To build the documentation:
     1. "cd" into the "docs" folder
     2. Run the command "make html"
     3. Open the "index.html" in the newly generated build/html folder
+
+## Configuration and usage
+    1. Log into Rheia with your superuser account
+    2. Click on the Admin link on the top right corner
+    3. Add a new Client
+    4. Add a new Team
+    5. Add yourself and the new client to the new team
+    6. Add a new Project
+    7. Add one or more new Activities
+    8. Go back to the main site
+    9. You should now be able to log time
