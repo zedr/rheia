@@ -20,4 +20,3 @@ def get_managed_users(user):
         return User.objects.filter()
     else:
         return User.objects.filter(members__leaders=user)
-
