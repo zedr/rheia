@@ -8,9 +8,9 @@ from django.contrib.auth.views import (
     logout as django_logout)
 
 from rheia import defaults
+from rheia.models import LoggedTime
 from rheia.queries.teams import get_user_teams
 from rheia.security.decorators import private_resource
-from rheia.serializers.universal import serialise
 
 
 def _user_detail_url(user):
@@ -48,6 +48,7 @@ def whoami(request):
 def user_detail_view(request, name):
     context = RequestContext(request, {
         "user": request.user,
-        "teams_count": get_user_teams(request.user).count()
+        "teams_count": get_user_teams(request.user).count(),
+        "has_data": LoggedTime.objects.filter(owner=request.user).count()
     })
     return render(request, "rheia/user.html", context)

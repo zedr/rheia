@@ -100,3 +100,8 @@ ul.list-group-submenu {
     width: 50%;
     height: 50%;
 }
+
+#chart svg {
+    height: 500px;
+    width: 400px;
+}

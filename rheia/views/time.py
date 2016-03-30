@@ -3,6 +3,7 @@ import json
 from django import http
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import HttpResponse
 from django.shortcuts import render
 from django.db.models.query_utils import Q
 from django.views.decorators.csrf import ensure_csrf_cookie
@@ -13,12 +14,14 @@ from django.utils.decorators import method_decorator
 from django.views.generic.edit import BaseCreateView
 from django import forms
 
+from rheia.reports.utils import generate_stats
 from rheia.forms import TimeForm
 from rheia.models import time, categories, approvals
 from rheia.security.decorators import private_resource
 from rheia.security.mixins import LoginRequiredMixin
 from rheia.views.teams import TeamDetail
 from rheia.queries.time import get_time_for_team
+from rheia.utils.http import wants_json
 
 
 class TimeDetail(DetailView):
@@ -138,8 +141,18 @@ class UserTime(LoginRequiredMixin, BaseCreateView, ListView):
         form.fields["client"].queryset = self.get_assigned_clients()
         return form
 
+    def _json_get(self, request, *args, **kwargs):
+        stats = generate_stats(self.object_list)
+        response = HttpResponse(
+            content_type="application/json"
+        )
+        json.dump(stats, response)
+        return response
+
     @method_decorator(private_resource("name"))
-    def get(self, *args, **kwargs):
+    def get(self, request, *args, **kwargs):
+        if wants_json(request):
+            return self._json_get(request, *args, **kwargs)
         form = self.get_form()
         if self.get_activities().count() and self.get_products().count():
             if form.assigned_clients.count():

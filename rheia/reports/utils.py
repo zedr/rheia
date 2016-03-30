@@ -1,9 +1,24 @@
 import csv
-
+from collections import defaultdict
 from cStringIO import StringIO
 
 from rheia.models import LoggedTime
 from rheia.utils.users import fullname_or_username
+
+
+def generate_stats(time):
+    """Generate stats about logged time.
+    """
+    stats = defaultdict(float)
+    for item in time:
+        stats[item.activity.name] += item.hours
+    return [
+        {
+            "label": k,
+            "value": v
+        }
+        for k, v in stats.items()
+    ]
 
 
 def generate_report(user, from_date, to_date, flo=None):

@@ -1,4 +1,5 @@
 {% extends "rheia/base_site.html" %}
+{% load staticfiles %}{
 {% block title %}Myself | Rheia{% endblock %}
 {% block content %}
     {% if user.first_name %}
@@ -16,4 +17,22 @@
     <div class="alert alert-info" role="alert">
         Have you <a href="{% url 'user_time' user.username %}">logged some time</a> today?
     </div>
+
+    <h2>Insights</h2>
+    {% if has_data %}
+    <h3>Time by activity</h3>
+    <div id="chart">
+        <svg></svg>
+    </div>
+    {% else %}
+        <p>No data yet!</p>
+    {% endif %}
 {% endblock content %}
+{% block footer %}
+    {{ block.super }}
+    <div class="scripts">
+        <script src="{% static 'js/lib/d3.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/lib/nv.d3.min.js' %}" type="text/javascript"></script>
+        <script src="{% static 'js/charts/user_charts.js' %}" type="text/javascript"></script>
+    </div>
+{% endblock footer %}
