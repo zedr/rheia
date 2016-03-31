@@ -11,7 +11,8 @@ def generate_stats(time):
     """
     stats = defaultdict(float)
     for item in time:
-        stats[item.activity.name] += item.hours
+        if time.activity and item.hours:
+            stats[item.activity.name] += item.hours
     return [
         {
             "label": k,
