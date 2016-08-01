@@ -1,4 +1,4 @@
-# Rheia - your companion of time
+# Rheia - the time-saving time tracker
 Rheia is a time tracker application written in Python, using the Django
 web framework.
 

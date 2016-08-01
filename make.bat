@@ -1,7 +1,5 @@
 @ECHO OFF
 
-REM Rheia Windows command line build script.
-
 set BUILDDIR=%cd%
 set VIRTUALENV=env\Scripts\activate.bat
 set PYTHONPATH=.

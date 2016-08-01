@@ -4,12 +4,97 @@
       "product": 1,
       "task_id": null,
       "notes": null,
+      "first_created": "2016-03-29T19:45:18.503Z",
+      "start_date": "2016-03-29",
+      "duration": 1200,
+      "last_modified": "2016-03-29T19:45:18.503Z",
+      "client": 1,
+      "activity": 1,
+      "owner": 1,
+      "start_time": "20:45:09"
+    },
+    "model": "rheia.loggedtime",
+    "pk": 67
+  },
+  {
+    "fields": {
+      "product": 1,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-29T19:45:28.297Z",
+      "start_date": "2016-03-29",
+      "duration": 12000,
+      "last_modified": "2016-03-29T19:45:28.297Z",
+      "client": 1,
+      "activity": 1,
+      "owner": 1,
+      "start_time": "20:45:25"
+    },
+    "model": "rheia.loggedtime",
+    "pk": 68
+  },
+  {
+    "fields": {
+      "product": 1,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-30T18:36:01.886Z",
+      "start_date": "2016-03-30",
+      "duration": 3600,
+      "last_modified": "2016-03-30T18:36:01.886Z",
+      "client": 1,
+      "activity": 2,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 69
+  },
+  {
+    "fields": {
+      "product": 1,
+      "task_id": null,
+      "notes": null,
+      "first_created": "2016-03-30T19:30:43.792Z",
+      "start_date": "2016-03-30",
+      "duration": 36000,
+      "last_modified": "2016-03-30T19:30:43.792Z",
+      "client": 1,
+      "activity": 1,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 70
+  },
+  {
+    "fields": {
+      "product": 1,
+      "task_id": null,
+      "notes": "4h",
+      "first_created": "2016-03-30T19:31:12.918Z",
+      "start_date": "2016-03-30",
+      "duration": 12000,
+      "last_modified": "2016-03-30T19:31:12.918Z",
+      "client": 1,
+      "activity": 2,
+      "owner": 1,
+      "start_time": null
+    },
+    "model": "rheia.loggedtime",
+    "pk": 71
+  },
+  {
+    "fields": {
+      "product": null,
+      "task_id": null,
+      "notes": null,
       "first_created": "2016-03-31T23:23:53.734Z",
       "start_date": "2016-03-31",
       "duration": 27000,
       "last_modified": "2016-03-31T23:23:53.734Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
@@ -18,15 +103,15 @@
   },
   {
     "fields": {
-      "product": 1,
+      "product": null,
       "task_id": null,
       "notes": null,
       "first_created": "2016-03-30T23:23:53.734Z",
       "start_date": "2016-03-30",
       "duration": 14400,
       "last_modified": "2016-03-30T23:23:53.734Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
@@ -35,15 +120,15 @@
   },
   {
     "fields": {
-      "product": 1,
+      "product": null,
       "task_id": null,
       "notes": null,
       "first_created": "2016-03-30T23:23:53.752Z",
       "start_date": "2016-03-30",
       "duration": 12600,
       "last_modified": "2016-03-30T23:23:53.752Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
@@ -52,15 +137,15 @@
   },
   {
     "fields": {
-      "product": 1,
+      "product": null,
       "task_id": null,
       "notes": null,
       "first_created": "2016-03-29T23:23:53.774Z",
       "start_date": "2016-03-29",
       "duration": 14400,
       "last_modified": "2016-03-29T23:23:53.774Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
@@ -69,15 +154,15 @@
   },
   {
     "fields": {
-      "product": 1,
+      "product": null,
       "task_id": null,
       "notes": null,
       "first_created": "2016-03-29T23:23:53.782Z",
       "start_date": "2016-03-29",
       "duration": 12600,
       "last_modified": "2016-03-29T23:23:53.782Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
@@ -86,15 +171,15 @@
   },
   {
     "fields": {
-      "product": 1,
+      "product": null,
       "task_id": null,
       "notes": null,
       "first_created": "2016-03-28T23:23:53.787Z",
       "start_date": "2016-03-28",
       "duration": 14400,
       "last_modified": "2016-03-28T23:23:53.787Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
@@ -103,15 +188,15 @@
   },
   {
     "fields": {
-      "product": 1,
+      "product": null,
       "task_id": null,
       "notes": null,
       "first_created": "2016-03-28T23:23:53.793Z",
       "start_date": "2016-03-28",
       "duration": 12600,
       "last_modified": "2016-03-28T23:23:53.793Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
@@ -120,15 +205,15 @@
   },
   {
     "fields": {
-      "product": 1,
+      "product": null,
       "task_id": null,
       "notes": null,
       "first_created": "2016-03-27T23:23:53.787Z",
       "start_date": "2016-03-27",
       "duration": 27000,
       "last_modified": "2016-03-27T23:23:53.787Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
@@ -137,15 +222,15 @@
   },
   {
     "fields": {
-      "product": 1,
+      "product": null,
       "task_id": null,
       "notes": null,
       "first_created": "2016-03-26T23:23:53.793Z",
       "start_date": "2016-03-26",
       "duration": 27000,
       "last_modified": "2016-03-26T23:23:53.793Z",
-      "client": 1,
-      "activity": 1,
+      "client": null,
+      "activity": null,
       "owner": 1,
       "start_time": null
     },
