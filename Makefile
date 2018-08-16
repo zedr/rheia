@@ -1,9 +1,11 @@
+.PHONY: build db sync doc serve shell test superuser
+
 virtualenv=. env/bin/activate;
 manage= PYTHONPATH=. python scripts/manage.py
 
-default: virtualenv build
+default: env build
 
-virtualenv:
+env:
 	@virtualenv -q -p python2.7 env || true
 
 build: requirements.txt env
@@ -24,7 +26,7 @@ serve: env
 shell: env
 	$(virtualenv) $(manage) shell
 
-test: env
+test: default
 	$(virtualenv) $(manage) test rheia
 
 superuser: env
