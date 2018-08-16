@@ -15,5 +15,5 @@ class AchievementsTests(TestCase):
         """A user who completes their time every week gets a cup.
         """
         user = User.objects.get()
-        results = streak_for_user(user, until=dt.date(2016, 3, 28))
-        self.assertEqual(results["streak"], 5)
+        results = streak_for_user(user, until=dt.date(2016, 3, 31))
+        self.assertEqual(results["streak"], 6)

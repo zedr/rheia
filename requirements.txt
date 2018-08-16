@@ -2,6 +2,6 @@ Django<1.9
 pytz
 django-bootstrap3
 django-bootstrap3-datepicker
-djangorestframework
+djangorestframework<3.7
 markdown
 Sphinx
