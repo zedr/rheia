@@ -2,6 +2,8 @@
 Rheia is a time tracker application written in Python, using the Django
 web framework.
 
+[![Build Status](https://travis-ci.com/zedr/rheia.svg?branch=master)](https://travis-ci.com/zedr/rheia)
+
 ## Pre-requisites
 - Python 2.7: https://www.python.org/downloads/release/python-2711/
 - VirtualEnv: https://pip.pypa.io/en/stable/installing/
