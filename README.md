@@ -48,7 +48,7 @@ To build the documentation:
     3. Add a new Client
     4. Add a new Team
     5. Add yourself and the new client to the new team
-    6. Add a new Project
+    6. Add a new Project/Product
     7. Add one or more new Activities
     8. Go back to the main site
     9. You should now be able to log time
