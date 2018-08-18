@@ -36,6 +36,10 @@ class TaskId(BaseCategory):
     client = models.ForeignKey(Client, null=True)
     product = models.ForeignKey(Product, null=True)
 
+    class Meta(object):
+        verbose_name = "Task"
+        verbose_name_plural = "Tasks"
+
 
 class Activity(BaseCategory):
     """An Activity.
