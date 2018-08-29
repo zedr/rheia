@@ -37,7 +37,7 @@ def streak_for_user(user, until=None):
             for item in qs:
                 start = item["start"]
                 if start == item["modified"]:
-                    time_ns[start] += item["daily_total"]
+                    time_ns[start] += item["daily_total"] or 0
             for start, duration in sorted(time_ns.items(), reverse=True):
                 if duration >= defaults.SECONDS_PER_DAY:
                     days += 1
