@@ -93,4 +93,5 @@ class TeamsMixin(object):
 
     @property
     def my_team_url(self):
-        return self.team.url
+        # Force evaluation of the lazy object
+        return str(self.team.url)

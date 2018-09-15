@@ -1,6 +1,6 @@
 import csv
 from collections import defaultdict
-from cStringIO import StringIO
+from io import StringIO
 
 from rheia.models import LoggedTime
 from rheia.utils.users import fullname_or_username

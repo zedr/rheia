@@ -1,36 +1,38 @@
-.PHONY: build db sync doc serve shell test superuser
+.PHONY: deps install clean tests serve
 
-virtualenv=. env/bin/activate;
-manage= PYTHONPATH=. python scripts/manage.py
+ENV=.env
+SYS_PYTHON=$(shell which python3)
+SYS_PYTHON_VERSION=$(shell ${SYS_PYTHON} -V | cut -d " " -f 2 | cut -c1-3)
+SITE_PACKAGES=${ENV}/lib/python${SYS_PYTHON_VERSION}/site-packages
+IN_ENV=. ${ENV}/bin/activate; export PYTHONPATH=.;
+MANAGE=python scripts/manage.py
+PYTHONPATH=export PYTHONPATH=.
 
-default: env build
+default: deps
 
-env:
-	@virtualenv -q -p python2.7 env || true
+${ENV}:
+	@echo "Creating Python environment..." >&2
+	@${SYS_PYTHON} -m venv ${ENV}
+	@echo "Updating pip..." >&2
+	@${IN_ENV} pip install -U pip
 
-build: requirements.txt env
-	$(virtualenv) pip install -r requirements.txt
+${SITE_PACKAGES}/django: ${ENV}
+	@echo "Installing Python dependencies"
+	@${IN_ENV} pip install -qqqr requirements.txt
 
-db: env
-	$(virtualenv) $(manage) migrate
+deps: ${SITE_PACKAGES}/django
 
-sync: env
-	$(virtualenv) $(manage) makemigrations
+install: default
+	@pip install -e .
 
-doc: env
-	$(virtualenv) cd docs && make html
+serve: default
+	@${IN_ENV} ${MANAGE} runserver
 
-serve: env
-	$(virtualenv) $(manage) runserver 0:8000
-
-shell: env
-	$(virtualenv) $(manage) shell
-
-test: default
-	$(virtualenv) $(manage) test rheia
-
-superuser: env
-	$(virtualenv) $(manage) createsuperuser
+tests: default
+	@${IN_ENV} ${MANAGE} test rheia
 
 clean:
-	@rm -rf env
+	@echo "Removing Python environment..."
+	@rm -rf ${ENV}
+	@echo "Removing Python byte-compiled files..."
+	@find . -name "*.pyc" -exec rm {} \;

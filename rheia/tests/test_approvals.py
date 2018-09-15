@@ -24,7 +24,8 @@ class ApprovalsTests(RheiaTestCase):
         self.login()
         self.assertFalse(self.logged_time.is_approved)
         response = self.client.post(
-            self.logged_time.url,
+            # Force evaluation of the lazy object.
+            str(self.logged_time.url),
             {
                 "approved": True
             },
