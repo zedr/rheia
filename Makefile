@@ -35,6 +35,8 @@ serve: default
 tests: default
 	@${IN_ENV} ${MANAGE} test rheia
 
+test: tests
+
 lint: ${ENV} ${SITE_PACKAGES}/flake8
 	@${IN_ENV} flake8 rheia/ --exclude .env
 
