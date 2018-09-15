@@ -1,4 +1,4 @@
-.PHONY: deps install clean tests serve
+.PHONY: deps install clean tests serve lint
 
 ENV=.env
 SYS_PYTHON=$(shell which python3)
@@ -11,14 +11,18 @@ PYTHONPATH=export PYTHONPATH=.
 default: deps
 
 ${ENV}:
-	@echo "Creating Python environment..." >&2
+	@echo "Creating Python ${SYS_PYTHON_VERSION} environment based on ${SYS_PYTHON}..." >&2
 	@${SYS_PYTHON} -m venv ${ENV}
 	@echo "Updating pip..." >&2
 	@${IN_ENV} pip install -U pip
 
 ${SITE_PACKAGES}/django: ${ENV}
-	@echo "Installing Python dependencies"
+	@echo "Installing Python dependencies..."
 	@${IN_ENV} pip install -qqqr requirements.txt
+
+${SITE_PACKAGES}/flake8: ${ENV}
+	@echo "Installing linter..."
+	@${IN_ENV} pip install flake8
 
 deps: ${SITE_PACKAGES}/django
 
@@ -30,6 +34,9 @@ serve: default
 
 tests: default
 	@${IN_ENV} ${MANAGE} test rheia
+
+lint: ${ENV} ${SITE_PACKAGES}/flake8
+	@${IN_ENV} flake8 rheia/ --exclude .env
 
 clean:
 	@echo "Removing Python environment..."

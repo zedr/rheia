@@ -1,5 +1,3 @@
-from django.test import Client
-
 from rheia.models import LoggedTime
 from rheia.tests.cases import RheiaTestCase
 
@@ -34,4 +32,3 @@ class ApprovalsTests(RheiaTestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertTrue(self.logged_time.is_approved)
-

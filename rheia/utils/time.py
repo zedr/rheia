@@ -8,5 +8,6 @@ def today():
 def today_as_text():
     return today().strftime("%Y-%m-%d")
 
+
 def a_week_ago_as_text():
     return today() - timezone.timedelta(days=7)

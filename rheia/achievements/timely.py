@@ -46,4 +46,3 @@ def streak_for_user(user, until=None):
         "streak": days,
         "total": count
     }
-

@@ -1,5 +1,3 @@
-import itertools
-
 from django.contrib.auth.models import User
 from django.db.models.query_utils import Q
 

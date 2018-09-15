@@ -6,8 +6,10 @@ from rheia.queries.teams import get_user_teams
 
 register = template.Library()
 
+
 def _link_class(there_url, here_url):
     return "active" if there_url == here_url else "inactive"
+
 
 @register.inclusion_tag("rheia/partials/sidebar.html", takes_context=True)
 def user_sidebar(context):
