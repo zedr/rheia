@@ -6,8 +6,20 @@ Subpackages
 
 .. toctree::
 
-    rheia.migrations
+    rheia.achievements
+    rheia.api
+    rheia.fields
+    rheia.forms
+    rheia.models
+    rheia.parsers
+    rheia.queries
+    rheia.reports
+    rheia.security
+    rheia.serializers
+    rheia.templatetags
     rheia.tests
+    rheia.utils
+    rheia.validators
     rheia.views
 
 Submodules
@@ -25,22 +37,6 @@ rheia.defaults module
 ---------------------
 
 .. automodule:: rheia.defaults
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-rheia.form module
------------------
-
-.. automodule:: rheia.form
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-rheia.models module
--------------------
-
-.. automodule:: rheia.models
     :members:
     :undoc-members:
     :show-inheritance:

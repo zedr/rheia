@@ -1,29 +1,29 @@
-rheia.views package
+rheia.forms package
 ===================
 
 Submodules
 ----------
 
-rheia.views.auth module
------------------------
-
-.. automodule:: rheia.views.auth
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-rheia.views.mixins module
+rheia.forms.inputs module
 -------------------------
 
-.. automodule:: rheia.views.mixins
+.. automodule:: rheia.forms.inputs
     :members:
     :undoc-members:
     :show-inheritance:
 
-rheia.views.time module
+rheia.forms.reports module
+--------------------------
+
+.. automodule:: rheia.forms.reports
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+rheia.forms.time module
 -----------------------
 
-.. automodule:: rheia.views.time
+.. automodule:: rheia.forms.time
     :members:
     :undoc-members:
     :show-inheritance:
@@ -32,7 +32,7 @@ rheia.views.time module
 Module contents
 ---------------
 
-.. automodule:: rheia.views
+.. automodule:: rheia.forms
     :members:
     :undoc-members:
     :show-inheritance:

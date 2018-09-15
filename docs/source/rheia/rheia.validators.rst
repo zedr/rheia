@@ -1,13 +1,13 @@
-rheia.migrations package
+rheia.validators package
 ========================
 
 Submodules
 ----------
 
-rheia.migrations.0001_initial module
-------------------------------------
+rheia.validators.time module
+----------------------------
 
-.. automodule:: rheia.migrations.0001_initial
+.. automodule:: rheia.validators.time
     :members:
     :undoc-members:
     :show-inheritance:
@@ -16,7 +16,7 @@ rheia.migrations.0001_initial module
 Module contents
 ---------------
 
-.. automodule:: rheia.migrations
+.. automodule:: rheia.validators
     :members:
     :undoc-members:
     :show-inheritance:

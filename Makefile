@@ -1,4 +1,4 @@
-.PHONY: deps install clean tests serve lint
+.PHONY: docs deps install clean tests serve lint
 
 ENV=.env
 SYS_PYTHON=$(shell which python3)
@@ -25,6 +25,9 @@ ${SITE_PACKAGES}/flake8: ${ENV}
 	@${IN_ENV} pip install flake8
 
 deps: ${SITE_PACKAGES}/django
+
+docs: docs/build/html
+	cd docs; make html
 
 install: default
 	@pip install -e .
