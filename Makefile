@@ -46,10 +46,10 @@ ${MANAGE}: ${ENV}
 	@make install
 
 serve: ${MANAGE}
-	@${IN_ENV} ${MANAGE} runserver
+	@${IN_ENV} rheia-manage runserver
 
 tests: ${MANAGE}
-	@${IN_ENV} ${MANAGE} test rheia
+	@${IN_ENV} rheia-manage test rheia
 
 lint: ${SITE_PACKAGES}/flake8
 	@${IN_ENV} flake8 rheia/ --exclude .env
