@@ -33,8 +33,8 @@ deps: ${SITE_PACKAGES}/django
 docs: ${SITE_PACKAGES}/sphinx
 	export PYTHONPATH=src; cd docs; make html
 
-install: ${ENV}
-	@${INV_ENV} pip install -e .
+install: ${ENV} deps
+	@${IN_ENV} pip install -e .
 
 wheel: ${ENV}
 	@${IN_ENV} python -m pip install -U setuptools wheel
@@ -48,7 +48,7 @@ ${MANAGE}: ${ENV}
 serve: ${MANAGE}
 	@${IN_ENV} ${MANAGE} runserver
 
-tests: default
+tests: ${MANAGE}
 	@${IN_ENV} ${MANAGE} test rheia
 
 test: tests
