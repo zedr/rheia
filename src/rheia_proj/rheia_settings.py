@@ -1,8 +1,6 @@
 from django.core.urlresolvers import reverse_lazy
 
-from rheia_proj.settings import (
-    INSTALLED_APPS, SECRET_KEY, STATIC_URL, ROOT_URLCONF
-)
+from rheia_proj.settings import INSTALLED_APPS
 import mimetypes
 
 mimetypes.add_type("image/svg+xml", ".svg", True)

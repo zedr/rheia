@@ -1,0 +1,3 @@
+include README.md
+graft src/rheia/templates
+graft src/rheia/static

@@ -3,5 +3,3 @@ pytz
 django-bootstrap3
 django-bootstrap3-datepicker
 djangorestframework<3.7
-markdown
-Sphinx

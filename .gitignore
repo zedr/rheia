@@ -60,4 +60,9 @@ target/
 .env*
 env
 
+# Build
+build
+docs/build
+dist
+
 *_results.xml
