@@ -51,8 +51,6 @@ serve: ${MANAGE}
 tests: ${MANAGE}
 	@${IN_ENV} ${MANAGE} test rheia
 
-test: tests
-
 lint: ${SITE_PACKAGES}/flake8
 	@${IN_ENV} flake8 rheia/ --exclude .env
 
